@@ -1,0 +1,26 @@
+{
+  "contracts": [
+    {
+      "id": 1,
+      "title": "contrato",
+      "initialDate": "01/01/2009",
+      "dueDate": "01/01/2009",
+      "contract": "",
+      "involvedParts": [
+        1,
+        3
+      ]
+    },
+    {
+      "title": "contrato2",
+      "initialDate": "01/01/2015",
+      "dueDate": "01/01/2019",
+      "contract": "",
+      "involvedParts": [
+        2,
+        3
+      ],
+      "id": 2
+    }
+  ]
+}
