@@ -1,5 +1,3 @@
-import { root } from "postcss";
-
 const initialState = {
     parts: [],
     contracts: [],
