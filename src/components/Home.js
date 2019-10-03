@@ -8,7 +8,11 @@ export default class components extends Component {
     render() {
         return <div>
             <Header />
-            <PartForm />
+            <button
+            onClick={<PartForm />}>
+                Register new part 
+            </button>
+            
         </div> ;
     }
 }
