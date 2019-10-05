@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import Header from '../UI/Header';
 
-
-// import { Container } from './styles';
-
-///TODO ADICIONAR VALIDAÇAO DE CONFIRMAÇÃO
 export default class Part extends Component {
     render() {
         return <div>
+            <Header />
             <h1> parts </h1>
             <Form>
                 <Form.Group controlId="formBasicText">
