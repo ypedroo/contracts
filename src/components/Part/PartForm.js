@@ -7,9 +7,9 @@ import Header from '../UI/Header';
 
 class PartForm extends Component {
     render() {
-        const { handleSubmit, pristine, reset, submitting } = this.props.parts;
+        const { handleSubmit, pristine, reset, submitting } = this.props;
         return (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={values => submitRegister(values.search)}>
                 <div>
                     <Header />
                 </div>
@@ -41,7 +41,7 @@ class PartForm extends Component {
                         <Field
                             name="email"
                             component="input"
-                            type="email"
+                            type="text"
                             placeholder="Email"
                         />
                     </div>
@@ -52,7 +52,7 @@ class PartForm extends Component {
                         <Field
                             name="cpf"
                             component="input"
-                            type="cpf"
+                            type="number"
                             placeholder="CPF"
                         />
                     </div>
@@ -63,7 +63,7 @@ class PartForm extends Component {
                         <Field
                             name="phone"
                             component="input"
-                            type="phone"
+                            type="number"
                             placeholder="Phone"
                         />
                     </div>
@@ -83,20 +83,15 @@ class PartForm extends Component {
 
 }
 
-const mapStateToProps = state => {
-    return { parts: state.partsReducer };
-};
-
-// const mapDispatchToProps = dispatch =>
-//     bindActionCreators(submitRegister(this.props.parts), dispatch);
+const mapDispatchToProps = dispatch =>
+    bindActionCreators(submitRegister(), dispatch);
 
 PartForm = connect(
-    mapStateToProps,
-    // mapDispatchToProps
+    mapDispatchToProps
 )(PartForm);
 
 export default reduxForm({
-    form: 'partForm' // a unique name for this form
+    form: 'partForm'
 })(PartForm);
 
 
