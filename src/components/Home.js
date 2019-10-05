@@ -8,16 +8,17 @@ export default class components extends Component {
         return <div>
             <Header />
             <Link to="/parts" >
-                <Button variant="outline-primary">
+                <Button 
+                variant="outline-primary"
+                large
+                >
                     Register part
                 </Button>
             </Link>
             <Link to="/contracts" >
-                <Button
-                    node="a"
-                    waves="light"
-                    large
-                    style={{ marginRight: '5px' }}
+                <Button 
+                variant="outline-primary"
+                large
                 >
                     Register contracts
             </Button>
