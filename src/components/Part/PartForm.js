@@ -9,7 +9,7 @@ const partForm = props => {
             <div>
                 <Header />
             </div>
-            <div>
+            <div className="PartForm">
                 <label>First Name</label>
                 <div>
                     <Field
@@ -77,6 +77,11 @@ const partForm = props => {
     )
 }
 
-export default reduxForm({
-    form: 'partForm' // a unique identifier for this form
-})(partForm)
+const mapStateToProps = (state, ownProps) => {
+    return {
+        parts: this.state.rootReducer.parts
+    }
+}
+
+export default reduxForm({form: 'partForm' })(partForm) (mapStateToProps)
+

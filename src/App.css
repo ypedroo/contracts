@@ -23,12 +23,17 @@
 
 
 .headerLogo {
-  width: 50px;  
+  width: 50px;
   float: left;
 }
 
-.HeaderParts{
-  margin-top: 2px;
+.HeaderParts {
+  margin-bottom: 10%;
   display: inline-block;
   text-align: center;
+}
+
+.PartForm {
+  display: block;
+  margin-top: 2px;
 }
