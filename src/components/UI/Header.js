@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from '../../assets/logo.png';
 import dev from '../../assets/ypedro.jpg';
 
-// import { Container } from './styles';
+import { Button } from 'semantic-ui-react';
 
 export default class Header extends Component {
     render() {
