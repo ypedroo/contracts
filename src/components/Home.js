@@ -9,11 +9,11 @@ export default class components extends Component {
     render() {
         return <div>
             <Header />
-            <button
-            onClick={<Link to="/parts" />}>
-                Register new part 
+            <Link to="/parts" >
+                <button type="button">
+                    Register new part
             </button>
-            
-        </div> ;
+            </Link>
+        </div>;
     }
 }
