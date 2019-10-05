@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from './components/Home';
 import PartForm from './components/Part/PartForm';
+import ContractForm from './components/Contract/ContractForm';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <Router>
         <Route exact path="/" component={Home} />
         <Route path="/parts" component={PartForm} />
-        {/* <Route path="/contracts" component={ContractList} /> */}
+        <Route path="/contracts" component={ContractForm} />
       </Router>
     </div>
   );
