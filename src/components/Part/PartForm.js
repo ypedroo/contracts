@@ -3,12 +3,12 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { submitRegister } from '../../actions/partsActions';
-import rootRreducer from '../../reducers/rootReducer';
+import rootReducer from '../../reducers/rootReducer';
 import Header from '../UI/Header';
 
 class PartForm extends Component {
     render() {
-        const { handleSubmit, pristine, reset, submitting } = this.props;
+        const { handleSubmit, pristine, reset, submitting } = this.props.parts;
         return (
             <form onSubmit={handleSubmit}>
                 <div>
@@ -84,7 +84,7 @@ class PartForm extends Component {
 
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
     return {
         parts: this.state.rootReducer.parts
     }
