@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { submitRegister } from '../../actions/partsActions';
-import rootReducer from '../../reducers/rootReducer';
 import Header from '../UI/Header';
 
 class PartForm extends Component {
@@ -84,18 +83,16 @@ class PartForm extends Component {
 
 }
 
-const mapStateToProps = (state) => {
-    return {
-        parts: this.state.rootReducer.parts
-    }
-}
+const mapStateToProps = state => {
+    return { parts: state.partsReducer };
+};
 
-const mapDispatchToProps = dispatch =>
-    bindActionCreators(submitRegister(this.props), dispatch);
+// const mapDispatchToProps = dispatch =>
+//     bindActionCreators(submitRegister(this.props.parts), dispatch);
 
 PartForm = connect(
     mapStateToProps,
-    mapDispatchToProps
+    // mapDispatchToProps
 )(PartForm);
 
 export default reduxForm({
