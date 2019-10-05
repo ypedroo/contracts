@@ -2,7 +2,7 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import Header from '../UI/Header';
 
-const SimpleForm = props => {
+const partForm = props => {
     const { handleSubmit, pristine, reset, submitting } = props
     return (
         <form onSubmit={handleSubmit}>
@@ -78,5 +78,5 @@ const SimpleForm = props => {
 }
 
 export default reduxForm({
-    form: 'simple' // a unique identifier for this form
-})(SimpleForm)
+    form: 'partForm' // a unique identifier for this form
+})(partForm)
