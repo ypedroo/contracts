@@ -1,106 +1,48 @@
-import React from 'react'
-import { Field, reduxForm } from 'redux-form'
+import React, { Component } from 'react';
+import { Button, Form } from 'react-bootstrap';
 
-const SimpleForm = props => {
-    const { handleSubmit, pristine, reset, submitting } = props
-    return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>First Name</label>
-                <div>
-                    <Field
-                        name="firstName"
-                        component="input"
-                        type="text"
-                        placeholder="First Name"
-                    />
-                </div>
-            </div>
-            <div>
-                <label>Last Name</label>
-                <div>
-                    <Field
-                        name="lastName"
-                        component="input"
-                        type="text"
-                        placeholder="Last Name"
-                    />
-                </div>
-            </div>
-            <div>
-                <label>Email</label>
-                <div>
-                    <Field
-                        name="email"
-                        component="input"
-                        type="email"
-                        placeholder="Email"
-                    />
-                </div>
-            </div>
-            <div>
-                <label>Sex</label>
-                <div>
-                    <label>
-                        <Field
-                            name="sex"
-                            component="input"
-                            type="radio"
-                            value="male"
-                        />{' '}
-                        Male
-            </label>
-                    <label>
-                        <Field
-                            name="sex"
-                            component="input"
-                            type="radio"
-                            value="female"
-                        />{' '}
-                        Female
-            </label>
-                </div>
-            </div>
-            <div>
-                <label>Favorite Color</label>
-                <div>
-                    <Field name="favoriteColor" component="select">
-                        <option />
-                        <option value="ff0000">Red</option>
-                        <option value="00ff00">Green</option>
-                        <option value="0000ff">Blue</option>
-                    </Field>
-                </div>
-            </div>
-            <div>
-                <label htmlFor="employed">Employed</label>
-                <div>
-                    <Field
-                        name="employed"
-                        id="employed"
-                        component="input"
-                        type="checkbox"
-                    />
-                </div>
-            </div>
-            <div>
-                <label>Notes</label>
-                <div>
-                    <Field name="notes" component="textarea" />
-                </div>
-            </div>
-            <div>
-                <button type="submit" disabled={pristine || submitting}>
+
+// import { Container } from './styles';
+
+///TODO ADICIONAR VALIDAÇAO DE CONFIRMAÇÃO
+export default class Part extends Component {
+    render() {
+        return <div>
+            <h1> parts </h1>
+            <Form>
+                <Form.Group controlId="formBasicText">
+                    <Form.Label>First Name</Form.Label>
+                    <Form.Control type="text" placeholder="First Name" />
+                </Form.Group>
+                <Form.Group controlId="formBasicText">
+                    <Form.Label>Last Name</Form.Label>
+                    <Form.Control type="text" placeholder="Last Name" />
+                </Form.Group>
+                <Form.Group controlId="formBasicText">
+                    <Form.Label>First Name</Form.Label>
+                    <Form.Control type="text" placeholder="First Name" />
+                </Form.Group>
+                <Form.Group controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Text className="text-muted">
+                        We'll never share your email with anyone else.
+                </Form.Text>
+                </Form.Group>
+                <Form.Group controlId="formBasicText">
+                    <Form.Label>Cpf</Form.Label>
+                    <Form.Control type="text" placeholder="CPF" />
+                </Form.Group>
+                <Form.Group controlId="formBasicText">
+                    <Form.Label>Phone</Form.Label>
+                    <Form.Control type="text" placeholder="First Name" />
+                </Form.Group>
+
+                <Button variant="primary" type="submit">
+
                     Submit
-        </button>
-                <button type="button" disabled={pristine || submitting} onClick={reset}>
-                    Clear Values
-        </button>
-            </div>
-        </form>
-    )
+                </Button>
+            </Form>
+        </div>;
+    }
 }
-
-export default reduxForm({
-    form: 'simple' // a unique identifier for this form
-})(SimpleForm)
