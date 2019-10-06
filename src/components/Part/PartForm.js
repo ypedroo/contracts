@@ -8,6 +8,7 @@ import Header from '../UI/Header';
 class PartForm extends Component {
     render() {
         const { submitRegister, pristine, reset, submitting } = this.props;
+        console.log(this.props);
         return (
             <form onSubmit={values => submitRegister(values.search)}>
                 <div>
