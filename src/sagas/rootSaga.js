@@ -23,7 +23,7 @@ function* postPart(action) {
 }
 
 function* rootSaga() {
-    yield takeEvery('ADD_PART', postPart);
+    yield takeEvery(ADD_PART, postPart);
 }
 
 export default rootSaga;
