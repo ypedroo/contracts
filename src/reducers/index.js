@@ -3,4 +3,4 @@ import partsReducer from "./partsReducer";
 import { reducer as formReducer } from 'redux-form';
 
 
-export default combineReducers({ partsReducer, formReducer });
+export default combineReducers({ partsReducer, form: formReducer });
