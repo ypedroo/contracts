@@ -1,6 +1,6 @@
 import { ADD_PART } from './actionTypes'
 
-export const submitRegister = content => ({
+export const handleSubmit = content => ({
     type: ADD_PART,
     payload: {
         content

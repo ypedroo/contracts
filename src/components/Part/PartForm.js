@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-// import { submitRegister } from '../../actions/partsActions';
+import { handleSubmit } from '../../actions/partsActions';
 import Header from '../UI/Header';
 
 class PartForm extends Component {
@@ -83,6 +83,14 @@ class PartForm extends Component {
     }
 
 }
+
+const mapDispatchToProps = dispatch =>
+    bindActionCreators(handleSubmit, dispatch);
+
+PartForm = connect(
+    null,
+    mapDispatchToProps
+)(PartForm);
 
 export default reduxForm({
     form: 'partForm'
