@@ -4,7 +4,7 @@ import Axios from 'axios';
 
 function* postPart(action) {
     try {
-        const user = Axios({
+        Axios({
             method: 'post',
             url: 'http://localhost:3000/parts',
             headers: {},
@@ -16,9 +16,9 @@ function* postPart(action) {
                 phone: action.payload.phone,
             }
         });
-        yield put({ type: SUCCESS_ADD_PART, user: user });
+        yield put({ type: SUCCESS_ADD_PART });
     } catch (e) {
-        yield put({ type: FAIL_ADD_PART, message: e.message });
+        yield put({ type: FAIL_ADD_PART });
     }
 }
 
