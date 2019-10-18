@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import { handleSubmit } from '../../store/actions/partsActions';
-import Header from '../../components/Header';
+import { handleSubmit } from '../store/actions/partsActions';
+import Header from '../components/Header';
 
 class PartForm extends Component {
     render() {
