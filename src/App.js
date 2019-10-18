@@ -2,9 +2,9 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Home from './components/Home';
-import PartForm from './components/Part/PartForm';
-import ContractForm from './components/Contract/ContractForm';
+import Home from './pages/Home';
+import PartForm from './pages/Part/Index';
+import ContractForm from './pages/Contract/Index';
 
 function App() {
   return (
