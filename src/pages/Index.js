@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
-import Header from '../components/UI/Header'
+import Header from '../components/Header'
 
 export default class components extends Component {
     render() {

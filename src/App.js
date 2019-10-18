@@ -1,8 +1,7 @@
 import React from 'react';
-import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Home from './pages/Home';
+import Home from './pages/Index';
 import PartForm from './pages/Part/Index';
 import ContractForm from './pages/Contract/Index';
 
