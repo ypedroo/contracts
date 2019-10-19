@@ -3,7 +3,6 @@ import { ADD_PART, SUCCESS_ADD_PART, FAIL_ADD_PART } from '../actions/actionType
 import Axios from 'axios';
 
 function* postPart(action) {
-    console.log(action.payload.content)
     try {
         Axios({
             method: 'post',

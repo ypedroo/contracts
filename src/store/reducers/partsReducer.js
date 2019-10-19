@@ -1,10 +1,18 @@
+import {
+    SUCCESS_ADD_PART,
+} from '../actions/actionTypes';
 const initialState = {
     parts: [],
     contracts: [],
 }
 
 const partsReducer = (state = initialState, action) => {
-    return state;
+    switch (action.type) {
+        case SUCCESS_ADD_PART:
+                return { ...state, parts: [] };
+        default:
+                return { ...state };
+    }
 }
 
 export default partsReducer;

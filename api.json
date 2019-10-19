@@ -343,6 +343,66 @@
       "email": "naruto@konoha.com",
       "phone": "8530375753",
       "id": 94
+    },
+    {
+      "name": "sasuke",
+      "lastName": "uchira",
+      "cpf": "27373276326",
+      "email": "uchiratops@gmail.com",
+      "phone": "26362736",
+      "id": 95
+    },
+    {
+      "name": "shikamaru",
+      "lastName": "nara",
+      "cpf": "2323",
+      "email": "nara@email.com",
+      "phone": "232323",
+      "id": 96
+    },
+    {
+      "name": "luffy",
+      "lastName": "d",
+      "email": "luffy",
+      "id": 97
+    },
+    {
+      "name": "luffy",
+      "lastName": "d",
+      "cpf": "29329382839",
+      "email": "luffy@kaizoku.com",
+      "phone": "28928998392",
+      "id": 98
+    },
+    {
+      "name": "shanks",
+      "lastName": "akagami",
+      "cpf": "293883293923",
+      "email": "ruivo@email.com",
+      "phone": "239283982393",
+      "id": 99
+    },
+    {
+      "name": "tanjirou",
+      "lastName": "kamado",
+      "email": "kamado",
+      "id": 100
+    },
+    {
+      "name": "tanjirou",
+      "lastName": "kamado",
+      "cpf": "293893289",
+      "email": "kamado@nezuko",
+      "phone": "2982398329",
+      "id": 101
+    },
+    {
+      "name": "zeinitsu",
+      "lastName": "id",
+      "cpf": "2039823023",
+      "email": "cry@ecry.com",
+      "phone": "29339288239",
+      "id": 102
     }
   ]
 }
