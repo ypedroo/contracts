@@ -3,17 +3,18 @@ import { ADD_PART, SUCCESS_ADD_PART, FAIL_ADD_PART } from '../actions/actionType
 import Axios from 'axios';
 
 function* postPart(action) {
+    console.log(action.payload.content)
     try {
         Axios({
             method: 'post',
             url: 'http://localhost:3000/parts',
             headers: {},
             data: {
-                name: action.payload.name,
-                lastName: action.payload.lastName,
-                cpf: action.payload.cpf,
-                email: action.payload.email,
-                phone: action.payload.phone,
+                name: action.payload.content.name,
+                lastName: action.payload.content.lastName,
+                cpf: action.payload.content.cpf,
+                email: action.payload.content.email,
+                phone: action.payload.content.phone,
             }
         });
         yield put({ type: SUCCESS_ADD_PART });
