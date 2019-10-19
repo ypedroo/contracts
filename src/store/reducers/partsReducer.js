@@ -9,7 +9,7 @@ const initialState = {
 const partsReducer = (state = initialState, action) => {
     switch (action.type) {
         case SUCCESS_ADD_PART:
-                return { ...state, parts: [] };
+                return { ...state };
         default:
                 return { ...state };
     }
