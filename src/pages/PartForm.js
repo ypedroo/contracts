@@ -2,15 +2,18 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import { handleSubmit } from '../store/actions/partsActions';
+import { submitForm } from '../store/actions/partsActions';
 import Header from '../components/Header';
 
 class PartForm extends Component {
 
+    handleSubmit = values => {
+        this.props.submitForm(values);
+    }
     render() {
         const { handleSubmit, pristine, reset, submitting } = this.props;
         return (
-            <form onSubmit={values => handleSubmit(values)}>
+            <form onSubmit={handleSubmit(this.handleSubmit)}>
                 <div>
                     <Header />
                 </div>
@@ -85,15 +88,15 @@ class PartForm extends Component {
 }
 
 const mapDispatchToProps = dispatch =>
-    bindActionCreators(handleSubmit, dispatch);
+    bindActionCreators({submitForm}, dispatch);
 
-PartForm = connect(
-    null,
-    mapDispatchToProps
-)(PartForm);
-
-export default reduxForm({
-    form: 'partForm',
-})(PartForm);
-
+    
+    PartForm =  reduxForm({
+        form: 'partForm',
+    })(PartForm);
+    
+export default PartForm = connect(
+        null,
+        mapDispatchToProps
+    )(PartForm);
 
