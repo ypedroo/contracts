@@ -6,11 +6,11 @@ import { handleSubmit } from '../store/actions/partsActions';
 import Header from '../components/Header';
 
 class PartForm extends Component {
+
     render() {
         const { handleSubmit, pristine, reset, submitting } = this.props;
-        console.log(this.props.handleSubmit);
         return (
-            <form onSubmit={values => handleSubmit(values.search)}>
+            <form onSubmit={values => handleSubmit(values)}>
                 <div>
                     <Header />
                 </div>
@@ -93,7 +93,7 @@ PartForm = connect(
 )(PartForm);
 
 export default reduxForm({
-    form: 'partForm'
+    form: 'partForm',
 })(PartForm);
 
 
