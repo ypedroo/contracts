@@ -9,6 +9,25 @@ import styled from 'styled-components';
 const Container = styled.div`
 margin: 8px;
 border: 1px solid;
+display: inline-block;
+`
+const Button = styled.div`
+cursor: pointer;
+    background: transparent;
+    display: inline;
+    font-size: 14px;
+    border-radius: 3px;
+    color: #101010;
+    border: 2px solid grey;
+    margin: 0 1em;
+    margin-top: 10px;
+    padding: 0.25em 1em;
+    transition: 0.5s all ease-out;
+    &:hover {
+        background-color: skyblue;
+        color: white;
+}
+
 `
 
 class PartForm extends Component {
@@ -19,8 +38,8 @@ class PartForm extends Component {
     render() {
         const { handleSubmit, pristine, reset, submitting } = this.props;
         return (
-            <Container>
-                <form onSubmit={handleSubmit(this.handleSubmit)}>
+            <form onSubmit={handleSubmit(this.handleSubmit)}>
+                <Container>
                     <div>
                         <Header />
                     </div>
@@ -30,6 +49,7 @@ class PartForm extends Component {
                             <Field
                                 name="name"
                                 component="input"
+                                className="inputField"
                                 type="text"
                                 placeholder="First Name"
                             />
@@ -40,6 +60,7 @@ class PartForm extends Component {
                         <div>
                             <Field
                                 name="lastName"
+                                className="inputField"
                                 component="input"
                                 type="text"
                                 placeholder="Last Name"
@@ -51,6 +72,7 @@ class PartForm extends Component {
                         <div>
                             <Field
                                 name="email"
+                                className="inputField"
                                 component="input"
                                 type="text"
                                 placeholder="Email"
@@ -63,6 +85,7 @@ class PartForm extends Component {
                             <Field
                                 name="cpf"
                                 component="input"
+                                className="inputField"
                                 type="number"
                                 placeholder="CPF"
                             />
@@ -75,21 +98,21 @@ class PartForm extends Component {
                                 name="phone"
                                 component="input"
                                 type="number"
+                                className="inputField"
                                 placeholder="Phone"
                             />
                         </div>
                     </div>
-
                     <div>
-                        <button type="submit" disabled={pristine || submitting}>
+                        <Button type="submit" disabled={pristine || submitting}>
                             Submit
-            </button>
-                        <button type="button" disabled={pristine || submitting} onClick={reset}>
+            </Button>
+                        <Button type="button" disabled={pristine || submitting} onClick={reset}>
                             Clear Values
-            </button>
+            </Button>
                     </div>
-                </form>
-            </Container>
+                </Container>
+            </form>
 
         )
     }
