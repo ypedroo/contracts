@@ -6,9 +6,10 @@ import { submitForm } from '../store/actions/partsActions';
 import Header from '../components/Header';
 import styled from 'styled-components';
 
-const Container = styled.div`
+const Container = styled.form`
 margin: 8px;
-border: 1px solid;
+width: 100%;
+text-align: center;
 display: inline-block;
 `
 const Button = styled.div`
