@@ -45,7 +45,14 @@ class PartForm extends Component {
 
     email = value =>
         value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?
-            'Invalid email address' : undefined
+            'Invalid email address' : undefined;
+
+    cpf = value => 
+            // eslint-disable-next-line no-useless-escape
+            value && /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/
+            .test(value) ?
+                'Invalid CPF': undefined;
+
 
     renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
         <div>
@@ -55,7 +62,7 @@ class PartForm extends Component {
                 {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
             </div>
         </div>
-    )
+    );
 
     render() {
         const { handleSubmit, pristine, reset, submitting } = this.props;
@@ -107,6 +114,7 @@ class PartForm extends Component {
                                 component="input"
                                 className="inputField"
                                 type="number"
+                                validate={this.cpf}
                             />
                         </div>
                     </div>
