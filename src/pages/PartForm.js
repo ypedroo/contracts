@@ -44,14 +44,10 @@ class PartForm extends Component {
     }
 
     email = value =>
-        value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?
-            'Invalid email address' : undefined;
+        value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ? 'Invalid email address' : undefined;
 
     cpf = value => 
-            // eslint-disable-next-line no-useless-escape
-            value && /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/
-            .test(value) ?
-                'Invalid CPF': undefined;
+            value && /^[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}/.test(value) ? 'Invalid CPF': undefined;
 
 
     renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
@@ -77,7 +73,7 @@ class PartForm extends Component {
                         <div>
                             <Field
                                 name="name"
-                                component="input"
+                                component={this.renderField}
                                 className="inputField"
                                 type="text"
                             />
@@ -89,7 +85,7 @@ class PartForm extends Component {
                             <Field
                                 name="lastName"
                                 className="inputField"
-                                component="input"
+                                component={this.renderField}
                                 type="text"
                             />
                         </div>
@@ -123,7 +119,7 @@ class PartForm extends Component {
                         <div>
                             <Field
                                 name="phone"
-                                component="input"
+                                component={this.renderField}
                                 type="number"
                                 className="inputField"
                             />
