@@ -111,7 +111,7 @@ class PartForm extends Component {
                         <div>
                             <Field
                                 name="cpf"
-                                component="input"
+                                component={this.renderField}
                                 className="inputField"
                                 type="number"
                                 validate={this.cpf}
