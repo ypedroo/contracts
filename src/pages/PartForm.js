@@ -6,13 +6,13 @@ import { submitForm } from '../store/actions/partsActions';
 import Header from '../components/Header';
 import styled from 'styled-components';
 
-const Container = styled.form`
-margin: 8px;
+const Container = styled.div`
+margin-top: 18px;
 width: 100%;
 text-align: center;
 display: inline-block;
 `
-const Button = styled.div`
+const button = styled.div`
 cursor: pointer;
     background: transparent;
     display: inline;
@@ -30,10 +30,11 @@ cursor: pointer;
 }
 `
 
-const Label = styled.label `
+const Label = styled.label`
 font-weight:  bold;
 font-size: 16px;
 text-shadow: -1px;
+color: #101010;
 `
 
 class PartForm extends Component {
@@ -41,6 +42,21 @@ class PartForm extends Component {
     handleSubmit = values => {
         this.props.submitForm(values);
     }
+
+    email = value =>
+        value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?
+            'Invalid email address' : undefined
+
+    renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
+        <div>
+            <label>{label}</label>
+            <div>
+                <input {...input} placeholder={label} type={type} />
+                {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+            </div>
+        </div>
+    )
+
     render() {
         const { handleSubmit, pristine, reset, submitting } = this.props;
         return (
@@ -57,7 +73,6 @@ class PartForm extends Component {
                                 component="input"
                                 className="inputField"
                                 type="text"
-                                placeholder="First Name"
                             />
                         </div>
                     </div>
@@ -69,7 +84,6 @@ class PartForm extends Component {
                                 className="inputField"
                                 component="input"
                                 type="text"
-                                placeholder="Last Name"
                             />
                         </div>
                     </div>
@@ -79,21 +93,20 @@ class PartForm extends Component {
                             <Field
                                 name="email"
                                 className="inputField"
-                                component="input"
+                                component={this.renderField}
                                 type="text"
-                                placeholder="Email"
+                                validate={this.email}
                             />
                         </div>
                     </div>
                     <div>
-                        <Label>Cpf</Label>
+                        <Label>CPF</Label>
                         <div>
                             <Field
                                 name="cpf"
                                 component="input"
                                 className="inputField"
                                 type="number"
-                                placeholder="CPF"
                             />
                         </div>
                     </div>
@@ -105,17 +118,16 @@ class PartForm extends Component {
                                 component="input"
                                 type="number"
                                 className="inputField"
-                                placeholder="Phone"
                             />
                         </div>
                     </div>
                     <div>
-                        <Button type="submit" disabled={pristine || submitting}>
+                        <button type="submit" disabled={pristine || submitting}>
                             Submit
-            </Button>
-                        <Button type="button" disabled={pristine || submitting} onClick={reset}>
+            </button>
+                        <button type="button" disabled={pristine || submitting} onClick={reset}>
                             Clear Values
-            </Button>
+            </button>
                     </div>
                 </Container>
             </form>
