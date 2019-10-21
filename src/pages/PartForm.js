@@ -43,11 +43,9 @@ class PartForm extends Component {
         this.props.submitForm(values);
     }
 
-    email = value =>
-        value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ? 'Invalid email address' : undefined;
+    email = value => value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ? 'Invalid email address' : undefined;
 
-    cpf = value => 
-            value && /^[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}/.test(value) ? 'Invalid CPF': undefined;
+    cpf = value => value && /(\d{3})(\d{3})(\d{3})(\d{2})/.test(value) ? 'Invalid CPF': undefined;
 
 
     renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
