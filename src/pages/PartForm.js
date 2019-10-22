@@ -11,8 +11,8 @@ margin-top: 18px;
 width: 100%;
 text-align: center;
 display: inline-block;
-`
-const button = styled.div`
+`;
+styled.button`
 cursor: pointer;
     background: transparent;
     display: inline;
@@ -45,7 +45,7 @@ class PartForm extends Component {
 
     email = value => value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ? 'Invalid email address' : undefined;
 
-    cpf = value => value && /(\d{3})(\d{3})(\d{3})(\d{2})/.test(value) ? 'Invalid CPF': undefined;
+    cpf = value => value && /^(([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}))$/.test(value) ? 'Invalid CPF' : undefined;
 
 
     renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
@@ -61,8 +61,8 @@ class PartForm extends Component {
     render() {
         const { handleSubmit, pristine, reset, submitting } = this.props;
         return (
-            <form onSubmit={handleSubmit(this.handleSubmit)}>
-                <Container>
+            <Container>
+                <form onSubmit={handleSubmit(this.handleSubmit)}>
                     <div>
                         <Header />
                     </div>
@@ -107,7 +107,7 @@ class PartForm extends Component {
                                 name="cpf"
                                 component={this.renderField}
                                 className="inputField"
-                                type="number"
+                                type="text"
                                 validate={this.cpf}
                             />
                         </div>
@@ -126,13 +126,14 @@ class PartForm extends Component {
                     <div>
                         <button type="submit" disabled={pristine || submitting}>
                             Submit
-            </button>
+                            </button>
                         <button type="button" disabled={pristine || submitting} onClick={reset}>
                             Clear Values
-            </button>
+                            </button>
+
                     </div>
-                </Container>
-            </form>
+                </form>
+            </Container>
 
         )
     }
