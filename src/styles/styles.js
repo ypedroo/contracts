@@ -22,10 +22,18 @@ button{
         color: white;
     }
 }
-label{
+label {
     font-weight:  bold;
-font-size: 16px;
-text-shadow: -1px;
-color: #101010;
+    font-size: 16px;
+    text-shadow: -1px;
+    color: #101010;
 }
+span {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: -1px;
+    color: red;
+}
+
 `;
