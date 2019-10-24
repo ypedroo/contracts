@@ -11,9 +11,8 @@ margin-top: 18px;
 width: 100%;
 text-align: center;
 display: inline-block;
-`;
-styled.button`
-cursor: pointer;
+button{
+    cursor: pointer;
     background: transparent;
     display: inline;
     font-size: 13px;
@@ -27,15 +26,17 @@ cursor: pointer;
     &:hover {
         background-color: skyblue;
         color: white;
+    }
 }
-`
-
-const Label = styled.label`
-font-weight:  bold;
+label{
+    font-weight:  bold;
 font-size: 16px;
 text-shadow: -1px;
 color: #101010;
-`
+}
+`;
+
+
 
 class PartForm extends Component {
 
@@ -67,7 +68,7 @@ class PartForm extends Component {
                         <Header />
                     </div>
                     <div className="PartForm">
-                        <Label>First Name</Label>
+                        <label>First Name</label>
                         <div>
                             <Field
                                 name="name"
@@ -78,7 +79,7 @@ class PartForm extends Component {
                         </div>
                     </div>
                     <div>
-                        <Label>Last Name</Label>
+                        <label>Last Name</label>
                         <div>
                             <Field
                                 name="lastName"
@@ -89,7 +90,7 @@ class PartForm extends Component {
                         </div>
                     </div>
                     <div>
-                        <Label>Email</Label>
+                        <label>Email</label>
                         <div>
                             <Field
                                 name="email"
@@ -101,7 +102,7 @@ class PartForm extends Component {
                         </div>
                     </div>
                     <div>
-                        <Label>CPF</Label>
+                        <label>CPF</label>
                         <div>
                             <Field
                                 name="cpf"
@@ -113,7 +114,7 @@ class PartForm extends Component {
                         </div>
                     </div>
                     <div>
-                        <Label>Phone</Label>
+                        <label>Phone</label>
                         <div>
                             <Field
                                 name="phone"
