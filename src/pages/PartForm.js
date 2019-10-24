@@ -4,40 +4,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { submitForm } from '../store/actions/partsActions';
 import Header from '../components/Header';
-import styled from 'styled-components';
-
-const Container = styled.div`
-margin-top: 18px;
-width: 100%;
-text-align: center;
-display: inline-block;
-button{
-    cursor: pointer;
-    background: transparent;
-    display: inline;
-    font-size: 13px;
-    border-radius: 3px;
-    color: #101010;
-    border: 2px solid grey;
-    margin: 0 1em;
-    margin-top: 10px;
-    padding: 0.25em 1em;
-    transition: 0.5s all ease-out;
-    &:hover {
-        background-color: skyblue;
-        color: white;
-    }
-}
-label{
-    font-weight:  bold;
-font-size: 16px;
-text-shadow: -1px;
-color: #101010;
-}
-`;
-
-
-
+import {Container} from '../styles/styles';
 class PartForm extends Component {
 
     handleSubmit = values => {
