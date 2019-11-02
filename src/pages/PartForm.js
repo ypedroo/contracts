@@ -11,7 +11,7 @@ class PartForm extends Component {
 
     handleSubmit = values => {
         this.props.submitForm(values);
-        console.log(this.props)
+        console.log(this.props.part)
         this.showAlert();
     }
 
@@ -70,7 +70,7 @@ class PartForm extends Component {
     );
 
     render() {
-        console.log(this.props)
+        console.log(this.props.part)
         const { handleSubmit, pristine, reset, submitting } = this.props;
         return (
             <Container>
@@ -155,6 +155,10 @@ class PartForm extends Component {
 
 }
 
+const mapStateToProps = state => ({
+    part: state.partsReducer
+});
+
 const mapDispatchToProps = dispatch =>
     bindActionCreators({ submitForm }, dispatch);
 
@@ -163,7 +167,7 @@ PartForm = reduxForm({
 })(PartForm);
 
 export default PartForm = connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(PartForm);
 
