@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { submitForm } from '../store/actions/partsActions';
 import Header from '../components/Header';
-import {Container} from '../styles/styles';
+import { Container } from '../styles/styles';
 class PartForm extends Component {
 
     handleSubmit = values => {
@@ -35,7 +35,6 @@ class PartForm extends Component {
                         <Header />
                     </div>
                     <div className="PartForm">
-                        <label>First Name</label>
                         <div>
                             <Field
                                 name="name"
@@ -44,9 +43,9 @@ class PartForm extends Component {
                                 type="text"
                             />
                         </div>
+                        <label>First Name</label>
                     </div>
                     <div>
-                        <label>Last Name</label>
                         <div>
                             <Field
                                 name="lastName"
@@ -55,9 +54,9 @@ class PartForm extends Component {
                                 type="text"
                             />
                         </div>
+                        <label>Last Name</label>
                     </div>
                     <div>
-                        <label>Email</label>
                         <div>
                             <Field
                                 name="email"
@@ -66,10 +65,10 @@ class PartForm extends Component {
                                 type="text"
                                 validate={this.email}
                             />
+                            <label>Email</label>
                         </div>
                     </div>
                     <div>
-                        <label>CPF</label>
                         <div>
                             <Field
                                 name="cpf"
@@ -78,10 +77,10 @@ class PartForm extends Component {
                                 type="text"
                                 validate={this.cpf}
                             />
+                            <label>CPF</label>
                         </div>
                     </div>
                     <div>
-                        <label>Phone</label>
                         <div>
                             <Field
                                 name="phone"
@@ -89,6 +88,7 @@ class PartForm extends Component {
                                 type="number"
                                 className="inputField"
                             />
+                            <label>Phone</label>
                         </div>
                     </div>
                     <div>

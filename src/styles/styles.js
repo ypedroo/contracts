@@ -28,6 +28,7 @@ label {
     font-size: 16px;
     text-shadow: -1px;
     color: #101010;
+    display: block;
 }
 span {
     display: block;
