@@ -4,16 +4,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Index';
 import PartForm from './pages/PartForm';
 import ContractForm from './pages/ContractForm';
+import { Container } from './styles/styles';
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Route exact path="/" component={Home} />
-        <Route path="/parts" component={PartForm} />
-        <Route path="/contracts" component={ContractForm} />
-      </Router>
-    </div>
+    <Container>
+      <div className="App">
+        <Router>
+          <Route exact path="/" component={Home} />
+          <Route path="/parts" component={PartForm} />
+          <Route path="/contracts" component={ContractForm} />
+        </Router>
+      </div>
+    </Container>
   );
 }
 

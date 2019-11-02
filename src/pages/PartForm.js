@@ -11,9 +11,15 @@ class PartForm extends Component {
         this.props.submitForm(values);
     }
 
-    email = value => value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ? 'Invalid email address ;-;' : undefined;
+    required = value => value ? undefined : 'Required';
+
+    email = value => value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ? 'Invalid email address' : undefined;
 
     cpf = value => value && /^(([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}))$/.test(value) ? 'Invalid CPF' : undefined;
+
+    phone = value => value && !/^(0|[1-9][0-9]{9})$/i.test(value)
+        ? 'Invalid phone number, must be at least 10 digits'
+        : undefined
 
 
     renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
@@ -35,60 +41,63 @@ class PartForm extends Component {
                         <Header />
                     </div>
                     <div className="PartForm">
+                        <label>First Name</label>
                         <div>
                             <Field
                                 name="name"
                                 component={this.renderField}
                                 className="inputField"
                                 type="text"
+                                validate={[this.required]}
                             />
                         </div>
-                        <label>First Name</label>
                     </div>
                     <div>
                         <div>
+                            <label>Last Name</label>
                             <Field
                                 name="lastName"
                                 className="inputField"
                                 component={this.renderField}
                                 type="text"
+                                validate={[this.required]}
                             />
                         </div>
-                        <label>Last Name</label>
                     </div>
                     <div>
                         <div>
+                            <label>Email</label>
                             <Field
                                 name="email"
                                 className="inputField"
                                 component={this.renderField}
                                 type="text"
-                                validate={this.email}
+                                validate={[this.email, this.required]}
                             />
-                            <label>Email</label>
                         </div>
                     </div>
                     <div>
                         <div>
+                            <label>CPF</label>
                             <Field
                                 name="cpf"
                                 component={this.renderField}
                                 className="inputField"
                                 type="text"
-                                validate={this.cpf}
+                                validate={[this.required, this.cpf]}
                             />
-                            <label>CPF</label>
                         </div>
                     </div>
                     <div>
+                        <label>Phone</label>
                         <div>
                             <Field
                                 name="phone"
                                 component={this.renderField}
-                                type="number"
+                                type="text"
                                 className="inputField"
+                                validate={[this.phone, this.required]}
                             />
-                            <label>Phone</label>
                         </div>
                     </div>
                     <div>
