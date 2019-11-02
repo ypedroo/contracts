@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
+// import { BrowserRouter as Router, Route } from "react-router-dom";
 import { submitForm } from '../store/actions/partsActions';
-import Header from '../components/Header';
 import { Container } from '../styles/styles';
+import Header from '../components/Header';
 class PartForm extends Component {
 
     handleSubmit = values => {
         this.props.submitForm(values);
+        
+        
     }
 
     required = value => value ? undefined : 'Required';
