@@ -5,6 +5,7 @@ margin-top: 18px;
 width: 100%;
 text-align: center;
 display: inline-block;
+background-color: #e8f4f8;
 button{
     cursor: pointer;
     background: transparent;
@@ -34,6 +35,10 @@ span {
     font-weight: bold;
     text-shadow: -1px;
     color: red;
+}
+img {
+margin-bottom: 50px;
+width: 70px;
 }
 
 `;
