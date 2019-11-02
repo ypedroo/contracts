@@ -16,7 +16,7 @@ class PartForm extends Component {
     }
 
     showAlert = () => {
-        const {part} = this.props
+        const { part } = this.props
         part ? this.successAlert() : this.failAlert();
     }
 
@@ -38,13 +38,25 @@ class PartForm extends Component {
             `
         }).then((result) => {
             if (result.value) {
-                
             }
         })
     }
 
     failAlert = () => {
-
+        Swal.fire({
+            title: 'Hey something went wrong :C',
+            text: "And this maybe our fault...",
+            type: 'warning',
+            showCancelButton: false,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Oh jeez men let me try again',
+            backdrop: `
+            rgba(0,0,123,0.4)
+            url("/images/nyan-cat.gif")
+            center left
+            no-repeat
+            `
+        })
     }
 
     required = value => value ? undefined : 'Required';
