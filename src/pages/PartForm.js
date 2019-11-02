@@ -9,9 +9,7 @@ import Header from '../components/Header';
 class PartForm extends Component {
 
     handleSubmit = values => {
-        this.props.submitForm(values);
-        
-        
+        this.props.submitForm(values);    
     }
 
     required = value => value ? undefined : 'Required';
