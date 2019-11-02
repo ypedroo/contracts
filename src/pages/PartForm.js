@@ -22,13 +22,13 @@ class PartForm extends Component {
 
     successAlert = () => {
         Swal.fire({
-            title: 'Hey you register the part',
-            text: "You can register more or just go home!",
+            title: 'Hey you register the part.',
+            text: "You can register more or just go home.",
             type: 'success',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Ok take me home!',
+            confirmButtonText: 'Take me home!',
             cancelButtonText: 'Meh i want to keep doing this.',
             backdrop: `
             rgba(0,0,123,0.4)
@@ -38,6 +38,7 @@ class PartForm extends Component {
             `
         }).then((result) => {
             if (result.value) {
+                this.props.history.push('/')
             }
         })
     }
