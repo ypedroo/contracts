@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-// import { BrowserRouter as Router, Route } from "react-router-dom";
 import { submitForm } from '../store/actions/partsActions';
 import { Container } from '../styles/styles';
 import Swal from 'sweetalert2';
@@ -11,7 +10,6 @@ class PartForm extends Component {
 
     handleSubmit = values => {
         this.props.submitForm(values);
-        console.log(this.props.part)
         this.showAlert();
     }
 
@@ -82,7 +80,6 @@ class PartForm extends Component {
     );
 
     render() {
-        console.log(this.props.part)
         const { handleSubmit, pristine, reset, submitting } = this.props;
         return (
             <Container>

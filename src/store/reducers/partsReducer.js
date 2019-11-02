@@ -2,9 +2,8 @@ import {
     SUCCESS_ADD_PART, 
     FAIL_ADD_PART,
 } from '../actions/actionTypes';
+
 const initialState = {
-    parts: [],
-    contracts: [],
     reqSuccess: undefined,
 }
 
