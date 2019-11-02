@@ -5,11 +5,47 @@ import { Field, reduxForm } from 'redux-form';
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import { submitForm } from '../store/actions/partsActions';
 import { Container } from '../styles/styles';
+import Swal from 'sweetalert2';
 import Header from '../components/Header';
 class PartForm extends Component {
 
     handleSubmit = values => {
-        this.props.submitForm(values);    
+        this.props.submitForm(values);
+        console.log(this.props)
+        this.showAlert();
+    }
+
+    showAlert = () => {
+        this.props.error ? this.successAlert() : this.failAlert();
+    }
+
+    successAlert = () => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Ok take me home!',
+            backdrop: `
+            rgba(0,0,123,0.4)
+            url("/images/nyan-cat.gif")
+            center left
+            no-repeat
+            `
+        }).then((result) => {
+            if (result.value) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        })
+    }
+
+    failAlert = () => {
+
     }
 
     required = value => value ? undefined : 'Required';
@@ -34,6 +70,7 @@ class PartForm extends Component {
     );
 
     render() {
+        console.log(this.props)
         const { handleSubmit, pristine, reset, submitting } = this.props;
         return (
             <Container>
@@ -120,7 +157,6 @@ class PartForm extends Component {
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators({ submitForm }, dispatch);
-
 
 PartForm = reduxForm({
     form: 'partForm',
