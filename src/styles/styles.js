@@ -11,7 +11,7 @@ button{
     display: inline;
     font-size: 13px;
     border-radius: 3px;
-    color: #fffafa  ;
+    color: #808080  ;
     border: 2px solid #19d2bf;
     margin: 0 1em;
     margin-top: 10px;
@@ -30,7 +30,7 @@ label {
     font-weight:  bold;
     font-size: 16px;
     text-shadow: -1px;
-    color: #fffafa;
+    color: #808080;
     display: block;
 }
 span {
