@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+export const MainWindow = styled.body `
+background-color: #08AEEA;
+background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
+`;
+
 export const Container = styled.div`
 margin-top: 18px;
 width: 100%;
@@ -11,7 +16,7 @@ button{
     display: inline;
     font-size: 13px;
     border-radius: 3px;
-    color: #101010;
+    color: #fffafa  ;
     border: 2px solid grey;
     margin: 0 1em;
     margin-top: 10px;
@@ -26,7 +31,7 @@ label {
     font-weight:  bold;
     font-size: 16px;
     text-shadow: -1px;
-    color: #101010;
+    color: #fffafa;
     display: block;
 }
 span {
