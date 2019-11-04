@@ -4,7 +4,6 @@ import App from './App';
 import createSagaMiddleware from 'redux-saga';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { MainWindow } from './styles/styles';
 
 import index from './store/reducers/index';
 
@@ -20,5 +19,5 @@ sagaMiddleware.run(rootSaga)
 
 const action = type => store.dispatch({ type })
 
-ReactDOM.render(<Provider store={store}> <MainWindow> <App /> </MainWindow> </Provider>, 
+ReactDOM.render(<Provider store={store}> <App /> </Provider>, 
     document.getElementById('root'));
