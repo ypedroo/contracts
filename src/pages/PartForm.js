@@ -30,7 +30,7 @@ class PartForm extends Component {
             cancelButtonText: 'I want to keep doing this.',
         }).then((result) => {
             if (result.value) {
-                this.props.history.push('/')
+                this.props.history.push('/');
             }
         })
     }
@@ -81,7 +81,7 @@ class PartForm extends Component {
                     <div>
                         <Header />
                     </div>
-                    <div className="PartForm">
+                    <div className="PartForm" alt="mainForm">
                         <label>First Name</label>
                         <div>
                             <Field
@@ -148,7 +148,6 @@ class PartForm extends Component {
                         <button type="button" disabled={pristine || submitting} onClick={reset}>
                             Clear Values
                             </button>
-
                     </div>
                 </form>
             </Container>

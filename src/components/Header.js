@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Container } from '../styles/styles';
 import logo from '../assets/logo.png';
-import {Container} from '../styles/styles';
 export default class Header extends Component {
     render() {
         return (
             <Container>
                 <div >
-                    <img className="headerLogo" src={logo} alt="logo"></img>
+                    <Link to="/" >
+                        <img className="headerLogo" src={logo} alt="logo"></img>
+                    </Link>
                 </div>
             </Container>
         );
