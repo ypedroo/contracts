@@ -17,7 +17,7 @@ button{
     font-size: 13px;
     border-radius: 3px;
     color: #fffafa  ;
-    border: 2px solid grey;
+    border: 2px solid #0ab2e4;
     margin: 0 1em;
     margin-top: 10px;
     padding: 0.25em 1em;
