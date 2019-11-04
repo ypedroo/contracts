@@ -28,12 +28,6 @@ class PartForm extends Component {
             cancelButtonColor: '#3085d6',
             confirmButtonText: 'Take me home!',
             cancelButtonText: 'I want to keep doing this.',
-            backdrop: `
-            rgba(0,0,123,0.4)
-            url("/images/nyan-cat.gif")
-            center left
-            no-repeat
-            `
         }).then((result) => {
             if (result.value) {
                 this.props.history.push('/')
