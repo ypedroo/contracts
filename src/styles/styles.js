@@ -35,7 +35,7 @@ label {
 }
 span {
     display: block;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     text-shadow: -1px;
     color: red;

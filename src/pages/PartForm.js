@@ -137,7 +137,7 @@ class PartForm extends Component {
                                 component={this.renderField}
                                 type="text"
                                 className="inputField"
-                                validate={[this.phone, this.required]}
+                                validate={[this.phone]}
                             />
                         </div>
                     </div>
