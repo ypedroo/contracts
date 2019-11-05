@@ -42,7 +42,13 @@ span {
 }
 img {
 margin-bottom: 50px;
-width: 70px;
+width: 80px;
+overflow: hidden;
+transition: transform .5s ease;
+    &:hover {
+        transform: scale(1.5);
+        box-shadow: 1px 1px 0.8px lightgray;
+    }
 }
 
 `;
