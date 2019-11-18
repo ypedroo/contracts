@@ -56,7 +56,7 @@ class PartForm extends Component {
 
     email = value => value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ? 'Invalid email address' : undefined;
 
-    cpf = value => value && /^(([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}))$/.test(value) ? 'Invalid CPF' : undefined;
+    cpf = value => value && !/^([0-9]){3}\.([0-9]){3}\.([0-9]){3}-([0-9]){2}$/i.test(value) ? 'Invalid CPF' : undefined;
 
     phone = value => value && !/^(0|[1-9][0-9]{9})$/i.test(value)
         ? 'Invalid phone number, must be at least 10 digits'
