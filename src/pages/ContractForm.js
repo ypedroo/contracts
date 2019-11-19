@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Container } from '../styles/styles';
+import { submitContract } from '../store/actions/contractActions';
 import Dropzone from 'react-dropzone'
 import Header from '../components/Header';
 
-export default class ContractForm extends Component {
-    getContract = value => console.log('got it', value);
+class ContractForm extends Component {
+    getContract = value => {
+        console.log('send it')
+        this.props.submitContract(value);
+    }
     render() {
         return (
             <Container>
@@ -24,9 +30,14 @@ export default class ContractForm extends Component {
                         )}
                     </Dropzone>
                 </div>
-
             </Container>
-
         );
     }
+
 }
+
+const mapDispatchToProps = dispatch =>
+    bindActionCreators({ submitContract }, dispatch);
+
+
+export default ContractForm = connect(mapDispatchToProps)(ContractForm);
