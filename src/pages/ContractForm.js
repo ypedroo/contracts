@@ -11,12 +11,14 @@ export default class ContractForm extends Component {
                 <Header />
                 <div className="ContractForm" alt="ContractForm">
                     <h1> Contracts </h1>
-                    <Dropzone className="ContractDropZone"onDrop={acceptedFiles => this.getContract(acceptedFiles)}>
+                    <Dropzone onDrop={acceptedFiles => this.getContract(acceptedFiles)}>
                         {({ getRootProps, getInputProps }) => (
                             <section>
                                 <div {...getRootProps()}>
                                     <input {...getInputProps()} />
-                                    <p>drop the contract here, or click to select it</p>
+                                    <p className="ContractDropZone">
+                                        drop the contract here, or click to select it
+                                    </p>
                                 </div>
                             </section>
                         )}
