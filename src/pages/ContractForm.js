@@ -1,24 +1,28 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Container } from '../styles/styles';
-// import { submitContract } from '../store/actions/'
+import { submitContract } from '../store/actions/contractActions';
 import Dropzone from 'react-dropzone'
 import Header from '../components/Header';
+
 class ContractForm extends Component {
-    
+    getContract = value => {
+        console.log('send it')
+        this.props.submitContract(value);
+    }
     render() {
         return (
             <Container>
                 <Header />
                 <div className="ContractForm" alt="ContractForm">
                     <h1> Contracts </h1>
-                    <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles)}>
+                    <Dropzone onDrop={acceptedFiles => this.getContract(acceptedFiles)}>
                         {({ getRootProps, getInputProps }) => (
                             <section className="ContractDropZone">
                                 <div {...getRootProps()}>
-                                    <input  {...getInputProps()} />
-                                    <p>
+                                    <input {...getInputProps()} />
+                                    <p className="ContractDropZone">
                                         drop the contract here, or click to select it
                                     </p>
                                 </div>
@@ -29,9 +33,11 @@ class ContractForm extends Component {
             </Container>
         );
     }
+
 }
 
 const mapDispatchToProps = dispatch =>
-    bindActionCreators({ submitForm }, dispatch);
+    bindActionCreators({ submitContract }, dispatch);
 
-export default connect(mapDispatchToProps)(ContractForm);
+
+export default ContractForm = connect(mapDispatchToProps)(ContractForm);
