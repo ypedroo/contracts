@@ -50,5 +50,8 @@ transition: transform .5s ease;
         box-shadow: 1px 1px 0.8px lightgray;
     }
 }
-
+.ContractDropZone {
+    width: 100%;
+    height: 100%;
+}
 `;
