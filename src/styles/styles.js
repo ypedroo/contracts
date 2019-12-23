@@ -51,6 +51,7 @@ transition: transform .5s ease;
     }
 }
 .ContractDropZone {
+    position: absolute;
     width: 100%;
     height: 100%;
 }
