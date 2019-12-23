@@ -1,5 +1,11 @@
 import {put, takeEvery} from 'redux-saga/effects';
-import {ADD_PART, SUCCESS_ADD_PART, FAIL_ADD_PART} from '../actions/actionTypes';
+import {
+    ADD_PART, 
+    SUCCESS_ADD_PART, 
+    FAIL_ADD_PART,
+    ADD_CONTRACT,
+    SUCCESS_ADD_CONTRACT,
+    FAIL_ADD_CONTRACT} from '../actions/actionTypes';
 import Axios from 'axios';
 
 function* postPart(action) {

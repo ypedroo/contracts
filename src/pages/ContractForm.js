@@ -8,7 +8,6 @@ import Header from '../components/Header';
 
 class ContractForm extends Component {
     getContract = value => {
-        console.log('send it')
         this.props.submitContract(value);
     }
     render() {
@@ -40,4 +39,7 @@ const mapDispatchToProps = dispatch =>
     bindActionCreators({ submitContract }, dispatch);
 
 
-export default ContractForm = connect(mapDispatchToProps)(ContractForm);
+export default ContractForm = connect(
+    null
+    ,mapDispatchToProps
+    )(ContractForm);
