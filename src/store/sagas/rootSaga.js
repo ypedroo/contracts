@@ -27,9 +27,25 @@ function* postPart(action) {
         yield put({ type: FAIL_ADD_PART });
     }
 }
+function* postContract(action) {
+    try {
+        Axios({
+            method: 'post',
+            url: 'http://localhost:3000/parts',
+            headers: {},
+            data: {
+                file: action.payload.content
+            }
+        });
+        yield put({ type: SUCCESS_ADD_CONTRACT });
+    } catch (e) {
+        yield put({ type: FAIL_ADD_CONTRACT });
+    }
+}
 
 function* rootSaga() {
     yield takeEvery(ADD_PART, postPart);
+    yield takeEvery(ADD_CONTRACT, postContract)
 }
 
 export default rootSaga;
