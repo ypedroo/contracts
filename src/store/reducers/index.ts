@@ -3,10 +3,10 @@ import partsReducer from "./partsReducer";
 import { reducer as formReducer } from 'redux-form';
 import { SUCCESS_ADD_PART } from '../actions/actionTypes'
 
-const reducers = {
+const reducers:any = {
     partsReducer,
     form: formReducer.plugin({
-        partForm: (state, action) => {
+        partForm: (state, action:any) => {
             switch (action.type) {
                 case SUCCESS_ADD_PART:
                     return undefined;
