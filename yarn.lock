@@ -1298,6 +1298,14 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.2.tgz#690a1475b84f2a884fd07cd797c00f5f31356ea8"
   integrity sha512-ce5d3q03Ex0sy4R14722Rmt6MT07Ua+k4FwDfdcToYJcMKNtRVQvJ6JCAPdAmAnbRb6CsX6aYb9m96NGod9uTw==
 
+"@types/react@*":
+  version "16.9.17"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.17.tgz#58f0cc0e9ec2425d1441dd7b623421a867aa253e"
+  integrity sha512-UP27In4fp4sWF5JgyV6pwVPAQM83Fj76JOcg02X5BZcpSu5Wx+fP9RMqc2v0ssBoQIFvD5JdKY41gjJJKmw6Bg==
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^2.2.0"
+
 "@types/react@^16.8.23":
   version "16.9.5"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.5.tgz#079dabd918b19b32118c25fd00a786bb6d0d5e51"
@@ -1305,6 +1313,14 @@
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
+
+"@types/redux-form@^8.2.0":
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/@types/redux-form/-/redux-form-8.2.0.tgz#e177fb1b837c11ec4c9eb66b4f5e833cdb4bef3f"
+  integrity sha512-tC3DGzd7hvunwjcb+8VOuzaRq+/m56aw5zujHE8AsZs0ZjqIpJDrq95T40Wms7cAazfR+02hpQS/NzsNJICoJA==
+  dependencies:
+    "@types/react" "*"
+    redux "^3.6.0 || ^4.0.0"
 
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
@@ -8965,6 +8981,14 @@ redux-saga@^1.1.1:
   integrity sha512-guSnGJ/uEF8yL8Mn4aNa7HxRGCpVUALCkec9iTTD0fOhQqkF6bRQkBLeS+7/cAH3nFnr299bi/DOurTi1apcCA==
   dependencies:
     "@redux-saga/core" "^1.1.1"
+
+"redux@^3.6.0 || ^4.0.0":
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.5.tgz#4db5de5816e17891de8a80c424232d06f051d93f"
+  integrity sha512-VSz1uMAH24DM6MF72vcojpYPtrTUu3ByVWfPL1nPfVRb5mZVTve5GnNCUV53QM/BZ66xfWrm0CTWoM+Xlz8V1w==
+  dependencies:
+    loose-envify "^1.4.0"
+    symbol-observable "^1.2.0"
 
 redux@^4.0.4:
   version "4.0.4"
