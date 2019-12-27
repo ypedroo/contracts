@@ -19,7 +19,8 @@
     "redux-saga": "^1.1.1",
     "semantic-ui-react": "^0.88.1",
     "styled-components": "^4.4.0",
-    "sweetalert2": "^8.18.7"
+    "sweetalert2": "^8.18.7",
+    "typescript": "^3.7.4"
   },
   "scripts": {
     "start": "set PORT=3001 && react-scripts start",
