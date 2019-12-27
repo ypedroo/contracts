@@ -8,7 +8,7 @@ import {
     FAIL_ADD_CONTRACT} from '../actions/actionTypes';
 import Axios from 'axios';
 
-function* postPart(action) {
+function* postPart(action:any) {
     try {
         Axios({
             method: 'post',
@@ -27,7 +27,7 @@ function* postPart(action) {
         yield put({ type: FAIL_ADD_PART });
     }
 }
-function* postContract(action) {
+function* postContract(action:any) {
     try {
         Axios({
             method: 'post',
