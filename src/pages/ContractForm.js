@@ -13,7 +13,7 @@ class ContractForm extends Component {
     render() {
         return (
             <Container>
-                <Header />
+                <Header/>
                 <div className="ContractForm" alt="ContractForm">
                     <h1> Contracts </h1>
                     <Dropzone onDrop={acceptedFiles => this.getContract(acceptedFiles)}>
