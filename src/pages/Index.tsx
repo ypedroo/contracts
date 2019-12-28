@@ -6,23 +6,17 @@ import { Container } from '../styles/styles';
 export default class components extends Component {
     render() {
         return <Container>
-            <div>
+            <div>''
                 <Header />
                 <Link to="/parts" >
-                    <button
-                        variant="outline-primary"
-                        large
-                    >
+                    <button>
                         Register part
-                </button>
+                    </button>
                 </Link>
                 <Link to="/contracts" >
-                    <button
-                        variant="outline-primary"
-                        large
-                    >
+                    <button>
                         Register contracts
-            </button>
+                    </button>
                 </Link>
             </div>
         </Container>
