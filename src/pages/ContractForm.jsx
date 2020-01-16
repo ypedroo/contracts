@@ -7,14 +7,14 @@ import Dropzone from 'react-dropzone'
 import Header from '../components/Header';
 
 class ContractForm extends Component {
-    getContract = value => {
+    getContract = (value) => {
         this.props.submitContract(value);
     }
     render() {
         return (
             <Container>
-                <Header > </Header>
-                <div className="ContractForm" alt="ContractForm">
+                <Header />
+                <div className="ContractForm">
                     <h1> Contracts </h1>
                     <Dropzone onDrop={acceptedFiles => this.getContract(acceptedFiles)}>
                         {({ getRootProps, getInputProps }) => (
@@ -35,7 +35,7 @@ class ContractForm extends Component {
 
 }
 
-const mapDispatchToProps = dispatch =>
+const mapDispatchToProps = (dispatch) =>
     bindActionCreators({ submitContract }, dispatch);
 
 

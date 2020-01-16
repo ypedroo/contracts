@@ -10,6 +10,7 @@
     "@types/styled-components": "^4.4.1",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
+    "formik": "^2.1.2",
     "json-server": "^0.15.1",
     "react": "^16.10.1",
     "react-bootstrap": "^1.0.0-beta.14",
@@ -25,7 +26,8 @@
     "semantic-ui-react": "^0.88.1",
     "styled-components": "^4.4.0",
     "sweetalert2": "^8.18.7",
-    "typescript": "^3.7.4"
+    "typescript": "^3.7.4",
+    "yup": "^0.28.0"
   },
   "scripts": {
     "start": "set PORT=3001 && react-scripts start",
