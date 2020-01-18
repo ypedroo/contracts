@@ -6,6 +6,8 @@ import { withFormik, FormikProps, FormikErrors, Form, Field } from 'formik';
 interface FormValues {
     email: string;
     password: string;
+    cpf: string;
+    phone: number;
 }
 
 interface OtherProps {
