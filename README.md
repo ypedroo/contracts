@@ -1,4 +1,4 @@
-# Contracts CRUD
+# Contracts
 In the project directory, you can run:
 
 ## Front end
