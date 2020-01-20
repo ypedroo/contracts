@@ -55,4 +55,9 @@ transition: transform .5s ease;
     width: 100%;
     height: 100%;
 }
+input {
+    display: block;
+    margin-bottom: 2em;
+    background-color: #F0F0F0;
+}
 `;
