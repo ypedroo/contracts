@@ -15,8 +15,6 @@ interface OtherProps {
     message: string;
 }
 
-// Aside: You may see InjectedFormikProps<OtherProps, FormValues> instead of what comes below in older code.. 
-//InjectedFormikProps was artifact of when Formik only exported a HoC. It is also less flexible as it MUST wrap all props (it passes them through).
 const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
     const { touched, errors, isSubmitting, message } = props;
     return (
@@ -61,16 +59,25 @@ const MyForm = withFormik<MyFormProps, FormValues>({
         };
     },
 
-    // Add a custom validation function (this can be async too!)
-    // validate: (values: FormValues) => {
-    //     let errors: FormikErrors = {};
-    //     if (!values.email) {
-    //         errors.email = 'Required';
-    //     } else if (!isValidEmail(values.email)) {
-    //         errors.email = 'Invalid email address';
-    //     }
-    //     return errors;
-    // },
+    validate: (values: FormValues) => {
+        let errors: FormikErrors = {};
+        if (!values.email) {
+            errors.email = 'Required';
+        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+            errors.email = 'Invalid email address';
+        }
+        if (!values.cpf) {
+            errors.cpf = 'Required';
+        } else if (!/^([0-9]){3}\.([0-9]){3}\.([0-9]){3}-([0-9]){2}$/i.test(values.cpf)) {
+            errors.cpf = 'Invalid cpf address';
+        }
+        if (!values.phone) {
+            errors.phone = 'Required';
+        } else if (!/^(0|[1-9][0-9]{9})$/i.test(values.phone)) {
+            errors.phone = 'Invalid phone, need to be 10 digits';
+        }
+        return errors;
+    },
 
     handleSubmit: values => {
         // do submitting things
