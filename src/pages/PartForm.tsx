@@ -21,15 +21,19 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
         <Container>
             <Form>
                 <h1>{message}</h1>
+                <h2 className="form-field" > Email </h2>
                 <Field type="email" name="email" />
                 {touched.email && errors.email && <div>{errors.email}</div>}
 
+                <h2 className="form-field" > Name </h2>
                 <Field type="name" name="name" />
                 {touched.name && errors.name && <div>{errors.name}</div>}
 
+                <h2 className="form-field" > CPF </h2>
                 <Field type="cpf" name="cpf" />
                 {touched.cpf && errors.cpf && <div>{errors.cpf}</div>}
 
+                <h2 className="form-field" > Phone </h2>
                 <Field type="phone" name="phone" />
                 {touched.phone && errors.phone && <div>{errors.phone}</div>}
 
