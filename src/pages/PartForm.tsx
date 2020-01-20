@@ -1,5 +1,5 @@
 import React from 'react';
-// import * as Yup from 'yup';
+ import * as Yup from 'yup';
 import { Container } from '../styles/styles';
 import Header from '../components/Header';
 
