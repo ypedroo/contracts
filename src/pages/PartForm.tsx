@@ -7,7 +7,7 @@ import { withFormik, FormikProps, FormikErrors, Form, Field } from 'formik';
 
 interface FormValues {
     email: string;
-    password: string;
+    name: string;
     cpf: string;
     phone: string;
 }
@@ -24,8 +24,8 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                 <Field type="email" name="email" />
                 {touched.email && errors.email && <div>{errors.email}</div>}
 
-                <Field type="password" name="password" />
-                {touched.password && errors.password && <div>{errors.password}</div>}
+                <Field type="name" name="name" />
+                {touched.name && errors.name && <div>{errors.name}</div>}
 
                 <Field type="cpf" name="cpf" />
                 {touched.cpf && errors.cpf && <div>{errors.cpf}</div>}
@@ -53,11 +53,18 @@ const MyForm = withFormik<MyFormProps, FormValues>({
     mapPropsToValues: props => {
         return {
             email: props.initialEmail || '',
-            password: '',
+            name: '',
             cpf: '',
             phone: ''
         };
     },
+
+    validationSchema: Yup.object().shape({
+        email: Yup.string()
+            .email("Email not valid")
+            .required("Email is required"),
+        name: Yup.string().required("name is required")
+    }),
 
     validate: (values: FormValues) => {
         let errors: FormikErrors = {};
@@ -80,7 +87,7 @@ const MyForm = withFormik<MyFormProps, FormValues>({
     },
 
     handleSubmit: values => {
-        // do submitting things
+        console.log(values);
     },
 })(InnerForm);
 
