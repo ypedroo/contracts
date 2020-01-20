@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 import { Container } from '../styles/styles';
 import Header from '../components/Header';
 
-import { withFormik, FormikProps, FormikErrors, Form, Field } from 'formik';
+import { withFormik, FormikProps, Form, Field } from 'formik';
 
 interface FormValues {
     email: string;
