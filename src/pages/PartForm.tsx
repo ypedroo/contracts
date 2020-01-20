@@ -1,5 +1,5 @@
 import React from 'react';
- import * as Yup from 'yup';
+import * as Yup from 'yup';
 import { Container } from '../styles/styles';
 import Header from '../components/Header';
 
@@ -63,28 +63,14 @@ const MyForm = withFormik<MyFormProps, FormValues>({
         email: Yup.string()
             .email("Email not valid")
             .required("Email is required"),
-        name: Yup.string().required("name is required")
+        name: Yup.string().required("name is required"),
+        cpf: Yup.string()
+            .required("cpf is required")
+            .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i),
+        phone: Yup.string()
+            .required("phone is required")
+            .matches(/^(0|[1-9][0-9]{9})$/i),
     }),
-
-    validate: (values: FormValues) => {
-        let errors: FormikErrors = {};
-        if (!values.email) {
-            errors.email = 'Required';
-        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-            errors.email = 'Invalid email address';
-        }
-        if (!values.cpf) {
-            errors.cpf = 'Required';
-        } else if (!/^([0-9]){3}\.([0-9]){3}\.([0-9]){3}-([0-9]){2}$/i.test(values.cpf)) {
-            errors.cpf = 'Invalid cpf address';
-        }
-        if (!values.phone) {
-            errors.phone = 'Required';
-        } else if (!/^(0|[1-9][0-9]{9})$/i.test(values.phone)) {
-            errors.phone = 'Invalid phone, need to be 10 digits';
-        }
-        return errors;
-    },
 
     handleSubmit: values => {
         console.log(values);
