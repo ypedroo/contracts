@@ -55,4 +55,21 @@ transition: transform .5s ease;
     width: 100%;
     height: 100%;
 }
+
+.Form {
+    margin-top: 10%;
+}
+input {
+    display: block;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #F0F0F0;
+}
+.form-field {
+    font-size: 1.2em;
+    font-weight: bold;
+}
 `;

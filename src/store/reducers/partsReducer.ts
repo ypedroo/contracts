@@ -7,7 +7,7 @@ const initialState = {
     reqSuccess: undefined,
 }
 
-const partsReducer = (state = initialState, action) => {
+const partsReducer = (state = initialState, action:any) => {
     switch (action.type) {
         case SUCCESS_ADD_PART:
                 return {...state, reqSuccess: true};
