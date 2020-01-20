@@ -57,7 +57,11 @@ transition: transform .5s ease;
 }
 input {
     display: block;
-    margin-bottom: 2em;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
     background-color: #F0F0F0;
 }
 `;
