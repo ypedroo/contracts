@@ -72,4 +72,8 @@ input {
     font-size: 1.2em;
     font-weight: bold;
 }
+.formErrorMessage {
+    font-size: 1em;
+    color: #A00000;
+}
 `;

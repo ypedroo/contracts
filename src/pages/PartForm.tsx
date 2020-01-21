@@ -23,19 +23,19 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                 <h1>{message}</h1>
                 <h2 className="form-field" > Email </h2>
                 <Field type="email" name="email" />
-                {touched.email && errors.email && <div>{errors.email}</div>}
+                {touched.email && errors.email && <p className="formErrorMessage">{errors.email}</p>}
 
                 <h2 className="form-field" > Name </h2>
                 <Field type="name" name="name" />
-                {touched.name && errors.name && <div>{errors.name}</div>}
+                {touched.name && errors.name && <p className="formErrorMessage">{errors.name}</p>}
 
                 <h2 className="form-field" > CPF </h2>
                 <Field type="cpf" name="cpf" />
-                {touched.cpf && errors.cpf && <div>{errors.cpf}</div>}
+                {touched.cpf && errors.cpf && <p className="formErrorMessage">{errors.cpf}</p>}
 
                 <h2 className="form-field" > Phone </h2>
                 <Field type="phone" name="phone" />
-                {touched.phone && errors.phone && <div>{errors.phone}</div>}
+                {touched.phone && errors.phone && <p className="formErrorMessage">{errors.phone}</p>}
 
                 <button type="submit" disabled={isSubmitting}>
                     Submit
@@ -51,9 +51,7 @@ interface MyFormProps {
     message: string; // if this passed all the way through you might do this or make a union type
 }
 
-// Wrap our form with the withFormik HoC
 const MyForm = withFormik<MyFormProps, FormValues>({
-    // Transform outer props into form values
     mapPropsToValues: props => {
         return {
             email: props.initialEmail || '',
