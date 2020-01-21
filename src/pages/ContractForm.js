@@ -7,7 +7,7 @@ import Dropzone from 'react-dropzone'
 import Header from '../components/Header';
 
 class ContractForm extends Component {
-    getContract = (value:Object) => {
+    getContract = (value) => {
         this.props.submitContract(value);
     }
     render() {

@@ -75,5 +75,6 @@ input {
 .formErrorMessage {
     font-size: 1em;
     color: #A00000;
+    font-weight: bold;
 }
 `;
