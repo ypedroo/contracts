@@ -17,7 +17,8 @@ const store = createStore(
 
 sagaMiddleware.run(rootSaga)
 
-const action = (type:any) => store.dispatch({ type })
+// @ts-ignore
+const action = (type:any) => store.dispatch({ type });
 
 ReactDOM.render(<Provider store={store}> <App /> </Provider>, 
     document.getElementById('root'));

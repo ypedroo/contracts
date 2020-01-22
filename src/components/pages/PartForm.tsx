@@ -1,9 +1,12 @@
 import React from 'react';
 import * as Yup from 'yup';
-import { Container } from '../styles/styles';
-import Header from '../components/Header';
-
+import Header from '../Header';
+import { connect } from 'react-redux';
+import { Container } from '../../styles/styles';
+import { bindActionCreators } from 'redux';
+import { submitForm } from '../../store/actions/partsActions';
 import { withFormik, FormikProps, Form, Field } from 'formik';
+
 
 interface FormValues {
     email: string;
@@ -14,6 +17,7 @@ interface FormValues {
 interface OtherProps {
     message: string;
 }
+
 
 const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
     const { touched, errors, isSubmitting, message } = props;
@@ -45,10 +49,9 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
     );
 };
 
-// The type of props MyForm receives
 interface MyFormProps {
     initialEmail?: string;
-    message: string; // if this passed all the way through you might do this or make a union type
+    message: string;
 }
 
 const MyForm = withFormik<MyFormProps, FormValues>({
@@ -68,16 +71,19 @@ const MyForm = withFormik<MyFormProps, FormValues>({
         name: Yup.string().required("name is required"),
         cpf: Yup.string()
             .required("cpf is required")
-            .matches(/^([0-9]){3}\.([0-9]){3}\.([0-9]){3}-([0-9]){2}$/i),
+            .matches(/^([0-9]){3}\.([0-9]){3}\.([0-9]){3}-([0-9]){2}$/i, 'Invalid CPF'),
         phone: Yup.string()
             .required("phone is required")
-            .matches(/^(0|[1-9][0-9]{8})$/i),
+            .matches(/^(0|[1-9][0-9]{9})$/i,'Invalid phone number'),
     }),
 
-    handleSubmit: values => {
-        console.log(values);
+    handleSubmit: (values, { props } ) => {
+        submitForm(values);        
     },
 })(InnerForm);
+
+const mapDispatchToProps = (dispatch:any) =>
+    bindActionCreators({ submitForm }, dispatch);
 
 const PartForm = () => (
     <div>
@@ -85,5 +91,4 @@ const PartForm = () => (
         <MyForm message="Register the part" />
     </div>
 );
-
-export default PartForm;
+export default connect(null, mapDispatchToProps) (PartForm);

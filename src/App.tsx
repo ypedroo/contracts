@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Home from './pages/Index';
-import PartForm from './pages/PartForm';
-import ContractForm from './pages/ContractForm';
+import Home from './components/pages/Index';
+import PartForm from './components/pages/PartForm';
+import ContractForm from './components/pages/ContractForm';
 import { Container } from './styles/styles';
 
 function App() {
