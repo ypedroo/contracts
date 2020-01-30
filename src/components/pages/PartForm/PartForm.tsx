@@ -6,13 +6,7 @@ import { submitForm } from '../../../store/actions/partsActions';
 import { withFormik, FormikProps, Form, Field } from 'formik';
 import { SubmitHandler } from 'redux-form';
 import { useDispatch } from 'react-redux'
-import { FormValues } from './Interfaces/FormValues'
-import { MyFormProps } from './Interfaces/FormProps'
-
-interface OtherProps {
-    message: string;
-}
-
+import { FormValues, MyFormProps, OtherProps } from './Interfaces/IFormProps'
 
 const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
     const { touched, errors, isSubmitting, message } = props;
