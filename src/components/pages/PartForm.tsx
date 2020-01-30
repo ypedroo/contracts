@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as Yup from 'yup';
 import Header from '../Header';
-import { connect } from 'react-redux';
 import { Container } from '../../styles/styles';
 import { bindActionCreators } from 'redux';
 import { submitForm } from '../../store/actions/partsActions';
 import { withFormik, FormikProps, Form, Field } from 'formik';
+import { SubmitHandler } from 'redux-form';
+import {useDispatch} from 'react-redux'
 
 
 interface FormValues {
@@ -48,13 +49,18 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
         </Container>
     );
 };
+const dispatch = useDispatch();
+
+useEffect(() => {
+    dispatch(submitForm)
+})
 
 interface MyFormProps {
     initialEmail?: string;
     message: string;
 }
 
-const MyForm = withFormik<MyFormProps, FormValues>({
+const MyForm = withFormik<MyFormProps, FormValues, SubmitHandler>({
     mapPropsToValues: props => {
         return {
             email: props.initialEmail || '',
@@ -74,16 +80,24 @@ const MyForm = withFormik<MyFormProps, FormValues>({
             .matches(/^([0-9]){3}\.([0-9]){3}\.([0-9]){3}-([0-9]){2}$/i, 'Invalid CPF'),
         phone: Yup.string()
             .required("phone is required")
-            .matches(/^(0|[1-9][0-9]{9})$/i,'Invalid phone number'),
+            .matches(/^(0|[1-9][0-9]{9})$/i, 'Invalid phone number'),
     }),
-
-    handleSubmit: (values, { props } ) => {
-        submitForm(values);        
+    
+    handleSubmit(values, { props, setSubmitting }) {
+        dispatch(values);
+        setSubmitting(false);
     },
 })(InnerForm);
 
-const mapDispatchToProps = (dispatch:any) =>
-    bindActionCreators({ submitForm }, dispatch);
+//i need this cause formik uses the state so i pass the state as a prop and then i can dispatch the action
+
+// const mapStateToProps = (state:any) => ({
+//     props: state.MyFormProps 
+    
+// // });
+
+// const mapDispatchToProps = (dispatch: any) =>
+//     bindActionCreators({ submitForm }, dispatch);
 
 const PartForm = () => (
     <div>
@@ -91,4 +105,4 @@ const PartForm = () => (
         <MyForm message="Register the part" />
     </div>
 );
-export default connect(null, mapDispatchToProps) (PartForm);
+export default PartForm;
