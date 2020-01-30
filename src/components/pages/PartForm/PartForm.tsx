@@ -7,6 +7,7 @@ import { withFormik, FormikProps, Form, Field } from 'formik';
 import { SubmitHandler } from 'redux-form';
 import { useDispatch } from 'react-redux'
 import { FormValues } from './Interfaces/FormValues'
+import { MyFormProps } from './Interfaces/FormProps'
 
 interface OtherProps {
     message: string;
@@ -48,10 +49,7 @@ useEffect(() => {
     dispatch(submitForm)
 })
 
-interface MyFormProps {
-    initialEmail?: string;
-    message: string;
-}
+
 
 const MyForm = withFormik<MyFormProps, FormValues, SubmitHandler>({
     mapPropsToValues: props => {
