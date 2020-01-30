@@ -1,20 +1,13 @@
 import React, { useEffect } from 'react';
 import * as Yup from 'yup';
-import Header from '../Header';
-import { Container } from '../../styles/styles';
-import { bindActionCreators } from 'redux';
-import { submitForm } from '../../store/actions/partsActions';
+import Header from '../../Header';
+import { Container } from '../../../styles/styles';
+import { submitForm } from '../../../store/actions/partsActions';
 import { withFormik, FormikProps, Form, Field } from 'formik';
 import { SubmitHandler } from 'redux-form';
-import {useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { FormValues } from './Interfaces/FormValues'
 
-
-interface FormValues {
-    email: string;
-    name: string;
-    cpf: string;
-    phone: string;
-}
 interface OtherProps {
     message: string;
 }
@@ -82,7 +75,7 @@ const MyForm = withFormik<MyFormProps, FormValues, SubmitHandler>({
             .required("phone is required")
             .matches(/^(0|[1-9][0-9]{9})$/i, 'Invalid phone number'),
     }),
-    
+
     handleSubmit(values, { props, setSubmitting }) {
         dispatch(values);
         setSubmitting(false);
@@ -93,7 +86,7 @@ const MyForm = withFormik<MyFormProps, FormValues, SubmitHandler>({
 
 // const mapStateToProps = (state:any) => ({
 //     props: state.MyFormProps 
-    
+
 // // });
 
 // const mapDispatchToProps = (dispatch: any) =>
