@@ -8,18 +8,18 @@ import { Container } from '../../../styles/styles';
 
 
 export default () => {
-    const [submitData, setSubmitData] = React.useState('');
+    const [submitData] = React.useState('');
     const dispatch = useDispatch()
     const handleSubmit = (values: State) => dispatch(submitForm(values));
     const initialState = {
         name: '',
-        email: 'email@example.com',
-        cpf: '_._._-__',
+        email: '',
+        cpf: '',
         phone: ''
     };
     
     type State = typeof initialState;
-    
+
     const form = useFormik({
         initialValues: {
             name: initialState.name,
