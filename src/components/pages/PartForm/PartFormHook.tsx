@@ -10,7 +10,7 @@ export default () => {
     const form = useFormik({
         initialValues: {
             name: '',
-            email: 'foo@example.com',
+            email: 'email@example.com',
             cpf: '___.___.___-__',
             phone: ''
         },
