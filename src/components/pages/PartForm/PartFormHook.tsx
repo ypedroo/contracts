@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Yup from 'yup';
+import Header from '../../Header';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import { submitForm } from '../../../store/actions/partsActions';
@@ -38,6 +39,7 @@ export default () => {
     return (
         <Container>
             <div>
+                <Header />
                 <h1>Parts</h1>
                 <form onSubmit={form.handleSubmit}>
                     <input type="text" name="name" onChange={form.handleChange}
@@ -64,7 +66,7 @@ export default () => {
                     <br />
                     <button type="submit" disabled={form.isSubmitting}>
                         Submit
-        </button>
+                    </button>
                 </form>
                 {submitData && (
                     <div>
