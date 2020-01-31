@@ -42,23 +42,22 @@ export default () => {
                 <Header />
                 <h1>Parts</h1>
                 <form onSubmit={form.handleSubmit}>
+                    <h2 className="form-field" > Name </h2>
                     <input type="text" name="name" onChange={form.handleChange}
                         onBlur={form.handleBlur} value={form.values.name}
                     />
                     {form.errors.name && form.touched.name && form.errors.name}
-                    <br />
+                    <h2 className="form-field" > Email </h2>
                     <input type="email" name="email" onChange={form.handleChange}
                         onBlur={form.handleBlur} value={form.values.email}
                     />
                     {form.errors.email && form.touched.email && form.errors.email}
-                    <br />
-                    <br />
+                    <h2 className="form-field" > CPF </h2>
                     <input type="cpf" name="cpf" onChange={form.handleChange}
                         onBlur={form.handleBlur} value={form.values.cpf}
                     />
                     {form.errors.cpf && form.touched.cpf && form.errors.cpf}
-                    <br />
-                    <br />
+                    <h2 className="form-field" > Phone </h2>
                     <input type="phone" name="phone" onChange={form.handleChange}
                         onBlur={form.handleBlur} value={form.values.phone}
                     />
