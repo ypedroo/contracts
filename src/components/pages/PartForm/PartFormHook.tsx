@@ -5,8 +5,9 @@ import { useFormik } from 'formik';
 import { submitForm } from '../../../store/actions/partsActions';
 
 export default () => {
-    const dispatch = useDispatch()
     const [submitData, setSubmitData] = React.useState('');
+    const dispatch = useDispatch()
+    const handleSubmit = (values: any) => dispatch(submitForm(values));
     const form = useFormik({
         initialValues: {
             name: '',
@@ -14,7 +15,10 @@ export default () => {
             cpf: '___.___.___-__',
             phone: ''
         },
-        onSubmit: (values: any) => setSubmitData(submitForm(values)),
+        onSubmit: (values: any) => {
+            setSubmitData(values);
+            handleSubmit(values);
+        },
         validationSchema: Yup.object().shape({
             email: Yup.string()
                 .email("Email not valid")
@@ -26,9 +30,9 @@ export default () => {
             phone: Yup.string()
                 .required("phone is required")
                 .matches(/^(0|[1-9][0-9]{9})$/i, 'Invalid phone number'),
-        })
+        }),
     });
-
+    
     return (
         <div>
             <h1>Parts</h1>
