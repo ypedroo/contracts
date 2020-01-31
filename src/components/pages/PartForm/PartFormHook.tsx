@@ -3,6 +3,8 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import { submitForm } from '../../../store/actions/partsActions';
+import { Container } from '../../../styles/styles';
+
 
 export default () => {
     const [submitData, setSubmitData] = React.useState('');
@@ -32,42 +34,44 @@ export default () => {
                 .matches(/^(0|[1-9][0-9]{9})$/i, 'Invalid phone number'),
         }),
     });
-    
+
     return (
-        <div>
-            <h1>Parts</h1>
-            <form onSubmit={form.handleSubmit}>
-                <input type="text" name="name" onChange={form.handleChange}
-                    onBlur={form.handleBlur} value={form.values.name}
-                />
-                {form.errors.name && form.touched.name && form.errors.name}
-                <br />
-                <input type="email" name="email" onChange={form.handleChange}
-                    onBlur={form.handleBlur} value={form.values.email}
-                />
-                {form.errors.email && form.touched.email && form.errors.email}
-                <br />
-                <br />
-                <input type="cpf" name="cpf" onChange={form.handleChange}
-                    onBlur={form.handleBlur} value={form.values.cpf}
-                />
-                {form.errors.cpf && form.touched.cpf && form.errors.cpf}
-                <br />
-                <br />
-                <input type="phone" name="phone" onChange={form.handleChange}
-                    onBlur={form.handleBlur} value={form.values.phone}
-                />
-                {form.errors.phone && form.touched.phone && form.errors.phone}
-                <br />
-                <button type="submit" disabled={form.isSubmitting}>
-                    Submit
+        <Container>
+            <div>
+                <h1>Parts</h1>
+                <form onSubmit={form.handleSubmit}>
+                    <input type="text" name="name" onChange={form.handleChange}
+                        onBlur={form.handleBlur} value={form.values.name}
+                    />
+                    {form.errors.name && form.touched.name && form.errors.name}
+                    <br />
+                    <input type="email" name="email" onChange={form.handleChange}
+                        onBlur={form.handleBlur} value={form.values.email}
+                    />
+                    {form.errors.email && form.touched.email && form.errors.email}
+                    <br />
+                    <br />
+                    <input type="cpf" name="cpf" onChange={form.handleChange}
+                        onBlur={form.handleBlur} value={form.values.cpf}
+                    />
+                    {form.errors.cpf && form.touched.cpf && form.errors.cpf}
+                    <br />
+                    <br />
+                    <input type="phone" name="phone" onChange={form.handleChange}
+                        onBlur={form.handleBlur} value={form.values.phone}
+                    />
+                    {form.errors.phone && form.touched.phone && form.errors.phone}
+                    <br />
+                    <button type="submit" disabled={form.isSubmitting}>
+                        Submit
         </button>
-            </form>
-            {submitData && (
-                <div>
-                    <h1>submit data</h1>
-                </div>
-            )}
-        </div>
+                </form>
+                {submitData && (
+                    <div>
+                        <h1>submit data</h1>
+                    </div>
+                )}
+            </div>
+        </Container>
     );
 };
