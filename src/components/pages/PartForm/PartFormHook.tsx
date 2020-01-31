@@ -1,16 +1,20 @@
-import React from "react";
-import { useFormik } from "formik";
+import React from 'react';
+import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
 
 
-const PartFormHook = () => {
-    const { getFieldProps, handleSubmit } = useFormik({
+export default () => {
+    const dispatch = useDispatch()
+    const [submitData, setSubmitData] = React.useState('');
+    const form = useFormik({
         initialValues: {
-            email: '',
             name: '',
-            cpf: '',
+            email: 'foo@example.com',
+            cpf: '___.___.___-__',
             phone: ''
         },
+        onSubmit: (values: any) => setSubmitData(values),
         validationSchema: Yup.object().shape({
             email: Yup.string()
                 .email("Email not valid")
@@ -22,51 +26,45 @@ const PartFormHook = () => {
             phone: Yup.string()
                 .required("phone is required")
                 .matches(/^(0|[1-9][0-9]{9})$/i, 'Invalid phone number'),
-        }),
-        onSubmit: (values, bag) => {
-            console.log(values);
-        }
+        })
     });
 
-    const [name, metadataName]: any = getFieldProps("name");
-    const [email, metadataEmail]: any = getFieldProps("email");
-    const [phone, metadataPhone]: any = getFieldProps("phone");
-    const [cpf, metadataCpf]: any = getFieldProps("cpf",);
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Nome: </label>
-                    <input placeholder="Name" {...name} />
-                    {metadataName.touch && metadataName.error && (
-                        <span>{metadataName.error}</span>
-                    )}
-                </div>
-                <div>
-                    <label>Email: </label>
-                    <input placeholder="Email" {...email} />
-                    {metadataEmail.touch && metadataEmail.error && (
-                        <span>{metadataEmail.error}</span>
-                    )}
-                </div>
-                <div>
-                    <label>Email: </label>
-                    <input placeholder="Cpf" {...cpf} />
-                    {metadataCpf.touch && metadataCpf.error && (
-                        <span>{metadataEmail.error}</span>
-                    )}
-                </div>
-                <div>
-                    <label>Telefone: </label>
-                    <input placeholder="Phone" {...phone} />
-                    {metadataPhone.touch && metadataPhone.error && (
-                        <span>{metadataPhone.error}</span>
-                    )}
-                </div>
-                <button type="submit">Submit</button>
+            <h1>Parts</h1>
+            <form onSubmit={form.handleSubmit}>
+                <input type="text" name="name" onChange={form.handleChange}
+                    onBlur={form.handleBlur} value={form.values.name}
+                />
+                {form.errors.name && form.touched.name && form.errors.name}
+                <br />
+                <input type="email" name="email" onChange={form.handleChange}
+                    onBlur={form.handleBlur} value={form.values.email}
+                />
+                {form.errors.email && form.touched.email && form.errors.email}
+                <br />
+                <br />
+                <input type="cpf" name="cpf" onChange={form.handleChange}
+                    onBlur={form.handleBlur} value={form.values.cpf}
+                />
+                {form.errors.cpf && form.touched.cpf && form.errors.cpf}
+                <br />
+                <br />
+                <input type="phone" name="phone" onChange={form.handleChange}
+                    onBlur={form.handleBlur} value={form.values.phone}
+                />
+                {form.errors.phone && form.touched.phone && form.errors.phone}
+                <br />
+                <button type="submit" disabled={form.isSubmitting}>
+                    Submit
+        </button>
             </form>
+            {submitData && (
+                <div>
+                    <h1>submit data</h1>
+                    <pre>{JSON.stringify(submitData, null, 2)}</pre>
+                </div>
+            )}
         </div>
     );
 };
-
-export default PartFormHook;
