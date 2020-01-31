@@ -29,6 +29,7 @@ export default () => {
         },
         onSubmit: (values: State) => {
             handleSubmit(values);
+            form.resetForm();
         },
         validationSchema: Yup.object().shape({
             email: Yup.string()
