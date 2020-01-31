@@ -52,22 +52,22 @@ export default () => {
                 <form onSubmit={form.handleSubmit}>
                     <h2 className="form-field" > Name </h2>
                     <input type="text" name="name" onChange={form.handleChange}
-                        onBlur={form.handleBlur} value={form.values.name}
+                        onBlur={form.handleBlur} value={form.values.name} placeholder="First name"
                     />
                     {form.errors.name && form.touched.name && <p className="formErrorMessage">{form.errors.name}</p>}
                     <h2 className="form-field" > Email </h2>
                     <input type="email" name="email" onChange={form.handleChange}
-                        onBlur={form.handleBlur} value={form.values.email}
+                        onBlur={form.handleBlur} value={form.values.email} placeholder="you@email.com"
                     />
                     {form.errors.email && form.touched.email && <p className="formErrorMessage">{form.errors.email}</p>}
                     <h2 className="form-field" > CPF </h2>
-                    <input type="cpf" name="cpf" onChange={form.handleChange}
+                    <input type="cpf" name="cpf" onChange={form.handleChange} placeholder="___.___.___-__"
                         onBlur={form.handleBlur} value={form.values.cpf}
                     />
                     {form.errors.cpf && form.touched.cpf && <p className="formErrorMessage">{form.errors.cpf}</p>}
                     <h2 className="form-field" > Phone </h2>
                     <input type="phone" name="phone" onChange={form.handleChange}
-                        onBlur={form.handleBlur} value={form.values.phone}
+                        onBlur={form.handleBlur} value={form.values.phone} placeholder="0000000000"
                     />
                     {form.errors.phone && form.touched.phone && <p className="formErrorMessage">{form.errors.phone}</p>}
                     <br />
