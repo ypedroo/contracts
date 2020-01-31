@@ -1,8 +1,8 @@
 import React from 'react';
-import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-
+import { useFormik } from 'formik';
+import { submitForm } from '../../../store/actions/partsActions';
 
 export default () => {
     const dispatch = useDispatch()
@@ -14,7 +14,7 @@ export default () => {
             cpf: '___.___.___-__',
             phone: ''
         },
-        onSubmit: (values: any) => setSubmitData(values),
+        onSubmit: (values: any) => setSubmitData(submitForm(values)),
         validationSchema: Yup.object().shape({
             email: Yup.string()
                 .email("Email not valid")
@@ -62,7 +62,6 @@ export default () => {
             {submitData && (
                 <div>
                     <h1>submit data</h1>
-                    <pre>{JSON.stringify(submitData, null, 2)}</pre>
                 </div>
             )}
         </div>
