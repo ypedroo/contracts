@@ -37,13 +37,6 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
         </Container>
     );
 };
-const dispatch = useDispatch();
-
-useEffect(() => {
-    dispatch(submitForm)
-})
-
-
 
 const MyForm = withFormik<MyFormProps, FormValues, SubmitHandler>({
     mapPropsToValues: props => {
@@ -69,7 +62,7 @@ const MyForm = withFormik<MyFormProps, FormValues, SubmitHandler>({
     }),
 
     handleSubmit(values, { props, setSubmitting }) {
-        dispatch(values);
+        // props.dispatch(values);
         setSubmitting(false);
     },
 })(InnerForm);
@@ -84,10 +77,16 @@ const MyForm = withFormik<MyFormProps, FormValues, SubmitHandler>({
 // const mapDispatchToProps = (dispatch: any) =>
 //     bindActionCreators({ submitForm }, dispatch);
 
-const PartForm = () => (
-    <div>
-        <Header />
-        <MyForm message="Register the part" />
-    </div>
-);
+function PartForm() {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(submitForm)
+    });
+    return (
+        < div >
+            <Header />
+            <MyForm message="Register the part" />
+        </div >
+    )
+};
 export default PartForm;
