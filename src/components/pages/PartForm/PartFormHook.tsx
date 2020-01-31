@@ -26,7 +26,7 @@ export default () => {
             email: Yup.string()
                 .email("Email not valid")
                 .required("Email is required"),
-            name: Yup.string().required("name is required"),
+            name: Yup.string().required("Name is required"),
             cpf: Yup.string()
                 .required("cpf is required")
                 .matches(/^([0-9]){3}\.([0-9]){3}\.([0-9]){3}-([0-9]){2}$/i, 'Invalid CPF'),
@@ -46,22 +46,22 @@ export default () => {
                     <input type="text" name="name" onChange={form.handleChange}
                         onBlur={form.handleBlur} value={form.values.name}
                     />
-                    {form.errors.name && form.touched.name && form.errors.name}
+                    {form.errors.name && form.touched.name && <p className="formErrorMessage">{form.errors.name}</p>}
                     <h2 className="form-field" > Email </h2>
                     <input type="email" name="email" onChange={form.handleChange}
                         onBlur={form.handleBlur} value={form.values.email}
                     />
-                    {form.errors.email && form.touched.email && form.errors.email}
+                    {form.errors.email && form.touched.email && <p className="formErrorMessage">{form.errors.email}</p>}
                     <h2 className="form-field" > CPF </h2>
                     <input type="cpf" name="cpf" onChange={form.handleChange}
                         onBlur={form.handleBlur} value={form.values.cpf}
                     />
-                    {form.errors.cpf && form.touched.cpf && form.errors.cpf}
+                    {form.errors.cpf && form.touched.cpf && <p className="formErrorMessage">{form.errors.cpf}</p>}
                     <h2 className="form-field" > Phone </h2>
                     <input type="phone" name="phone" onChange={form.handleChange}
                         onBlur={form.handleBlur} value={form.values.phone}
                     />
-                    {form.errors.phone && form.touched.phone && form.errors.phone}
+                    {form.errors.phone && form.touched.phone && <p className="formErrorMessage">{form.errors.phone}</p>}
                     <br />
                     <button type="submit" disabled={form.isSubmitting}>
                         Submit

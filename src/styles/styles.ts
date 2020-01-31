@@ -61,7 +61,7 @@ transition: transform .5s ease;
 }
 input {
     display: block;
-    bottom: 0;
+    bottom: 5%;
     top: 0;
     left: 0;
     right: 0;
