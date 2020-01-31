@@ -10,32 +10,40 @@ import { Container } from '../../../styles/styles';
 export default () => {
     const [submitData, setSubmitData] = React.useState('');
     const dispatch = useDispatch()
-    const handleSubmit = (values: any) => dispatch(submitForm(values));
+    const handleSubmit = (values: State) => dispatch(submitForm(values));
+    const initialState = {
+        name: '',
+        email: 'email@example.com',
+        cpf: '_._._-__',
+        phone: ''
+    };
+    
+    type State = typeof initialState;
+    
     const form = useFormik({
         initialValues: {
-            name: '',
-            email: 'email@example.com',
-            cpf: '___.___.___-__',
-            phone: ''
+            name: initialState.name,
+            email: initialState.email,
+            cpf: initialState.cpf,
+            phone: initialState.phone,
         },
-        onSubmit: (values: any) => {
-            setSubmitData(values);
+        onSubmit: (values: State) => {
             handleSubmit(values);
         },
         validationSchema: Yup.object().shape({
             email: Yup.string()
                 .email("Email not valid")
                 .required("Email is required"),
-            name: Yup.string().required("Name is required"),
-            cpf: Yup.string()
+                name: Yup.string().required("Name is required"),
+                cpf: Yup.string()
                 .required("cpf is required")
                 .matches(/^([0-9]){3}\.([0-9]){3}\.([0-9]){3}-([0-9]){2}$/i, 'Invalid CPF'),
-            phone: Yup.string()
+                phone: Yup.string()
                 .required("phone is required")
                 .matches(/^(0|[1-9][0-9]{9})$/i, 'Invalid phone number'),
         }),
     });
-
+    
     return (
         <Container>
             <div>
