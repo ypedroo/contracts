@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Yup from 'yup';
 import Header from '../../Header';
+import Swal from 'sweetalert2'
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import { submitForm } from '../../../store/actions/partsActions';
@@ -17,8 +18,51 @@ export default () => {
         cpf: '',
         phone: ''
     };
-    
+
     type State = typeof initialState;
+    // const showAlert = () => {
+    //     part ? this.successAlert() : this.failAlert();
+    // }
+
+    const successAlert = () => {
+        Swal.fire({
+            title: 'Hey you register the part',
+            text: "You can register more or just go home!",
+            type: 'success',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ok take me home!',
+            cancelButtonText: 'Meh i want to keep doing this.',
+            backdrop: `
+            rgba(0,0,123,0.4)
+            url("/images/nyan-cat.gif")
+            center left
+            no-repeat
+            `
+        }).then((result) => {
+            if (result.value) {
+
+            }
+        })
+    }
+
+    const failAlert = () => {
+        Swal.fire({
+            title: 'Hey something went wrong :C',
+            text: "And this maybe our fault...",
+            type: 'warning',
+            showCancelButton: false,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Oh jeez men let me try again',
+            backdrop: `
+            rgba(0,0,123,0.4)
+            url("/images/nyan-cat.gif")
+            center left
+            no-repeat
+            `
+        })
+    }
 
     const form = useFormik({
         initialValues: {
@@ -35,16 +79,16 @@ export default () => {
             email: Yup.string()
                 .email("Email not valid")
                 .required("Email is required"),
-                name: Yup.string().required("Name is required"),
-                cpf: Yup.string()
+            name: Yup.string().required("Name is required"),
+            cpf: Yup.string()
                 .required("cpf is required")
                 .matches(/^([0-9]){3}\.([0-9]){3}\.([0-9]){3}-([0-9]){2}$/i, 'Invalid CPF'),
-                phone: Yup.string()
+            phone: Yup.string()
                 .required("phone is required")
                 .matches(/^(0|[1-9][0-9]{9})$/i, 'Invalid phone number'),
         }),
     });
-    
+
     return (
         <Container>
             <div>
