@@ -62,13 +62,10 @@ const MyForm = withFormik<MyFormProps, FormValues, SubmitHandler>({
     }),
 
     handleSubmit(values, { props, setSubmitting }) {
-        // props.dispatch(values);
+        // dispatch(values);
         setSubmitting(false);
     },
 })(InnerForm);
-
-//i need this cause formik uses the state so i pass the state as a prop and then i can dispatch the action
-
 // const mapStateToProps = (state:any) => ({
 //     props: state.MyFormProps 
 
@@ -77,16 +74,10 @@ const MyForm = withFormik<MyFormProps, FormValues, SubmitHandler>({
 // const mapDispatchToProps = (dispatch: any) =>
 //     bindActionCreators({ submitForm }, dispatch);
 
-function PartForm() {
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(submitForm)
-    });
-    return (
-        < div >
-            <Header />
-            <MyForm message="Register the part" />
-        </div >
-    )
-};
+const PartForm = () => (
+    <div>
+        <Header />
+        <MyForm message="Register the part" />
+    </div>
+);
 export default PartForm;

@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 
 
 const PartFormHook = () => {
-    const { getFieldProps, handleSubmit, errors, touched } = useFormik({
+    const { getFieldProps, handleSubmit } = useFormik({
         initialValues: {
             email: '',
             name: '',
