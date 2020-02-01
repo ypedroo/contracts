@@ -8,7 +8,8 @@ export const FAIL_GET_ALL_PART = 'FAIL_GET_ALL_PART';
 
 export const ADD_PART = 'ADD_PART';
 export const SUCCESS_ADD_PART = 'SUCCESS_ADD_PART';
-export const FAIL_ADD_PART = 'FAIL_ADD_PART';
+export const FAIL_ADD_PART = 'FAIL_ADD_PART'
+export const RESET_ADD_PART = 'RESET_ADD_PART';
 
 export const DEL_PART = 'DEL_PART';
 export const SUCCESS_DEL_PART = 'SUCCESS_DEL_PART';

@@ -22,7 +22,7 @@ export default () => {
     console.log(reqSuccess)
     type State = typeof initialState;
     const showAlert = () => {
-        // reqSuccess ? this.successAlert() : this.failAlert();
+        reqSuccess ? successAlert() : failAlert();
     }
 
     const successAlert = () => {
@@ -43,7 +43,6 @@ export default () => {
             `
         }).then((result) => {
             if (result.value) {
-
             }
         })
     }
@@ -75,6 +74,7 @@ export default () => {
         onSubmit: (values: State) => {
             handleSubmit(values);
             form.resetForm();
+            showAlert();
         },
         validationSchema: Yup.object().shape({
             email: Yup.string()

@@ -24,6 +24,7 @@ function* postPart(action:any) {
         });
         yield put({ type: SUCCESS_ADD_PART });
     } catch (e) {
+        console.log('fail saga')
         yield put({ type: FAIL_ADD_PART });
     }
 }
