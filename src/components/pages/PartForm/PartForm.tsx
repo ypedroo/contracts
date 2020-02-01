@@ -2,7 +2,7 @@ import React from 'react';
 import * as Yup from 'yup';
 import Header from '../../Header';
 import Swal from 'sweetalert2'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import { submitForm } from '../../../store/actions/partsActions';
 import { Container } from '../../../styles/styles';
@@ -10,7 +10,8 @@ import { Container } from '../../../styles/styles';
 
 export default () => {
     const [submitData] = React.useState('');
-    const dispatch = useDispatch()
+    const reqSuccess = useSelector((state:any) => state.partsReducer.reqSuccess);
+    const dispatch = useDispatch();
     const handleSubmit = (values: State) => dispatch(submitForm(values));
     const initialState = {
         name: '',
@@ -18,11 +19,11 @@ export default () => {
         cpf: '',
         phone: ''
     };
-
+    console.log(reqSuccess)
     type State = typeof initialState;
-    // const showAlert = () => {
-    //     part ? this.successAlert() : this.failAlert();
-    // }
+    const showAlert = () => {
+        // reqSuccess ? this.successAlert() : this.failAlert();
+    }
 
     const successAlert = () => {
         Swal.fire({

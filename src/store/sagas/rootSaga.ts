@@ -31,7 +31,7 @@ function* postContract(action:any) {
     try {
         Axios({
             method: 'post',
-            url: 'http://localhost:3000/parts',
+            url: 'http://localhost:3000/contracts',
             headers: {},
             data: {
                 file: action.payload.content
