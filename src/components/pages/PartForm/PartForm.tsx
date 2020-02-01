@@ -10,10 +10,11 @@ import { Container } from '../../../styles/styles';
 
 
 export default () => {
-    const [submitData] = React.useState('');
+    const [submitData] = React.useState(''); // remove it
     const reqSuccess = useSelector((state:any) => state.partsReducer.reqSuccess);
     const dispatch = useDispatch();
     const history = useHistory();
+    
     const handleSubmit = (values: State) => dispatch(submitForm(values));
     const initialState = {
         name: '',
@@ -23,8 +24,9 @@ export default () => {
     };
     console.log(reqSuccess)
     type State = typeof initialState;
+
     const showAlert = () => {
-        reqSuccess ? failAlert() : successAlert();
+        reqSuccess ? successAlert() : failAlert();
     }
 
     const successAlert = () => {

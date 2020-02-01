@@ -1,4 +1,4 @@
-import { ADD_PART } from './actionTypes'
+import { ADD_PART, RESET_ADD_PART } from './actionTypes'
 
 export const submitForm = (content:any) => {
     return {
@@ -6,5 +6,11 @@ export const submitForm = (content:any) => {
         payload: {
             content
         }
+    }
+}
+
+export const resetSubmission = (content: any) => {
+    return {
+        type: RESET_ADD_PART,
     }
 }
