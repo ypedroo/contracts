@@ -3,6 +3,7 @@ import * as Yup from 'yup';
 import Header from '../../Header';
 import Swal from 'sweetalert2'
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom'
 import { useFormik } from 'formik';
 import { submitForm } from '../../../store/actions/partsActions';
 import { Container } from '../../../styles/styles';
@@ -12,6 +13,7 @@ export default () => {
     const [submitData] = React.useState('');
     const reqSuccess = useSelector((state:any) => state.partsReducer.reqSuccess);
     const dispatch = useDispatch();
+    const history = useHistory();
     const handleSubmit = (values: State) => dispatch(submitForm(values));
     const initialState = {
         name: '',
@@ -41,9 +43,9 @@ export default () => {
             center left
             no-repeat
             `
-        }).then((result) => {
+        }).then((result:any) => {
             if (result.value) {
-                this.props.history.push('/')
+                history.push('/')
             }
         })
     }
