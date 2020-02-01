@@ -22,7 +22,7 @@ export default () => {
     console.log(reqSuccess)
     type State = typeof initialState;
     const showAlert = () => {
-        reqSuccess ? successAlert() : failAlert();
+        reqSuccess ? failAlert() : successAlert();
     }
 
     const successAlert = () => {
@@ -43,6 +43,7 @@ export default () => {
             `
         }).then((result) => {
             if (result.value) {
+                this.props.history.push('/')
             }
         })
     }
