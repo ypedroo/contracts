@@ -9,7 +9,7 @@ export const submitForm = (content:any) => {
     }
 }
 
-export const resetSubmission = (content: any) => {
+export const resetSubmission = () => {
     return {
         type: RESET_ADD_PART,
     }
